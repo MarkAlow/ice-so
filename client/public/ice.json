@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Batman",
+    "price": 3.5,
+    "description": "This ice cream is made out of cookies and milk to provide you with an amazing taste!",
+    "pic": "iceimg/batmanIce.png"
+  },
+  {
+    "id": 2,
+    "name": "Birthday Cake",
+    "price": 2.2,
+    "description": "This ice cream is made out of fruit ice!",
+    "pic": "iceimg/birthdayIce.png"
+  },
+  {
+    "id": 3,
+    "name": "Bugs Bunny",
+    "price": 4.1,
+    "description": "This ice cream is fat-free and delicious!",
+    "pic": "iceimg/bugsIce.png"
+  },
+  {
+    "id": 4,
+    "name": "Minions",
+    "price": 2.8,
+    "description": "So many Bananas! Try it out today!",
+    "pic": "iceimg/minionsIce.png"
+  },
+  {
+    "id": 5,
+    "name": "Sour Wower",
+    "price": 1.9,
+    "description": "This ice cream is really good and has a lot of sugar in it!",
+    "pic": "iceimg/sourIce.png"
+  },
+  {
+    "id": 6,
+    "name": "Turtle Bunny",
+    "price": 3.6,
+    "description": "This ice cream is made out of a lot of cherries.",
+    "pic": "iceimg/turtleIce.png"
+  }
+]

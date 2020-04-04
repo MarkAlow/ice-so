@@ -1,0 +1,134 @@
+body {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  font-family: "Cubano";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Cubano";
+  src: url("font/cubano.woff");
+  src: url("font/cubano.eot") format("embedded-opentype"),
+    url("font/cubano.eot"), url("font/cubano.ttf") format("truetype"),
+    url("font/cubano.woff") format("woff");
+}
+
+#headerMenu {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  z-index: 99;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 100%;
+  display: grid;
+  background: #333;
+}
+#daytons {
+  position: relative;
+  font-size: 5rem;
+}
+#best {
+  position: relative;
+  padding-bottom: 12rem;
+  font-size: 9rem;
+}
+#footerMenu {
+  grid-template-columns: 1fr;
+  color: white;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 100%;
+  display: grid;
+  background: #333;
+}
+#iceCreams {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+#cartBody {
+  z-index: 100;
+}
+#cartModal {
+  width: 40%;
+  margin: 0 auto;
+}
+#cartItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+#iceCreamGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat();
+  cursor: pointer;
+}
+
+#aboutCircle {
+  border-radius: 50%;
+  background: #eee;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutMenuGrid {
+  display: grid;
+  margin-bottom: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+#aboutMenuGrid > grid-item {
+  cursor: pointer;
+}
+
+#aboutDisplayGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.aboutDisplay {
+  box-shadow: 1px 1px 15px #ccc;
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 1rem;
+  align-items: center;
+  width: 100%;
+  height: 15rem;
+  background: #fff;
+  animation: op 1s 1;
+}
+
+@keyframes op {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 960px) {
+  #cartModal {
+    width: 95%;
+    margin: 0 auto;
+  }
+}

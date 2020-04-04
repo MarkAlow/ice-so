@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "description": "Ice Cream description",
+        "pic": "https://img.url/1"
+    },
+    {
+        "id": 2,
+        "description": "Locations description",
+        "pic": "https://img.url/2"
+    },
+    {
+        "id": 3,
+        "description": "Markets description",
+        "pic": "https://img.url/3"
+    }
+]

@@ -1,0 +1,126 @@
+#order {
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+  padding: 1rem 2rem 1rem 2rem;
+}
+grid-container {
+  display: grid;
+}
+#ordersBody {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+#orders {
+  margin-top: 5rem;
+  position: absolute;
+  width: 45%;
+  left: 1rem;
+  grid-row-gap: 1rem;
+  grid-template-columns: 1fr;
+}
+#ui {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+}
+
+#analytics {
+  position: fixed;
+  margin-top: 2rem;
+  width: 53%;
+  right: 0rem;
+  grid-row-gap: 1rem;
+  grid-template-columns: 1fr;
+  background: #fff;
+  border: 1px solid #ccc;
+  height: 100vh;
+}
+#date {
+  text-align: right;
+  border-radius: 0.2rem;
+  padding: 1rem 2rem 1rem 2rem;
+}
+#analytics > grid-item {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+#analyticsInfo {
+  border-radius: 0.5rem;
+  background: rgb(250, 250, 250);
+  border: 1px solid #ccc;
+  height: 45vh;
+  display: flex;
+  justify-self: center;
+  align-content: center;
+  width: 90%;
+}
+#analyticsMisc {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 1rem;
+}
+#todayAnalytics {
+  display: grid;
+  grid-template-areas:
+    "t t t"
+    "o c r";
+}
+#todayAnalytics:nth-child(1) {
+  grid-area: t;
+}
+#todayAnalytics:nth-child(2) {
+  grid-area: o;
+}
+#todayAnalytics:nth-child(3) {
+  grid-area: c;
+}
+#todayAnalytics:nth-child(4) {
+  grid-area: r;
+}
+#orderLocation {
+  border-radius: 0.2rem;
+  border: 1px solid #ccc;
+  background-color: rgb(250, 250, 250);
+  padding: 1rem 2rem 1rem 2rem;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+#locIcon {
+  position: absolute;
+  left: 3rem;
+  display: flex;
+}
+@media screen and (max-width: 960px) {
+  #locIcon {
+    display: none;
+  }
+  #ui {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  #orders {
+    left: 0rem;
+    margin: 0 auto;
+    margin-top: 4rem;
+    width: 95%;
+    position: relative;
+    grid-row-gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  #analytics {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    position: relative;
+    grid-row-gap: 1rem;
+    grid-template-columns: 1fr;
+    background: #fff;
+    border: 1px solid #ccc;
+  }
+}
