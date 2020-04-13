@@ -235,7 +235,7 @@ export default function PrimarySearchAppBar(props) {
               </Badge>
             </IconButton> */}
             <IconButton aria-label='new orders notifications' color='inherit'>
-              <Badge badgeContent={countNew() / 2} color='secondary'>
+              <Badge badgeContent={countNew()} color='secondary'>
                 <NotificationsIcon />
               </Badge>{" "}
             </IconButton>

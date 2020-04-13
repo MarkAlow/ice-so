@@ -59,6 +59,10 @@ function App() {
       .post("http://localhost:5000/api/customer", customer)
       .then((res) => console.log(res.data))
       .catch((err) => console.log("Error! - " + err));
+    axios
+      .post("/api/customer", customer)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log("Error! - " + err));
   };
 
   // START ICE CREAM CART
