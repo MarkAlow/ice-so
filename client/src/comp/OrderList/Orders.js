@@ -91,9 +91,10 @@ export default function Orders() {
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
+  let base = "" || "http://localhost:5000";
   const getOrders = () => {
     axios
-      .get("http://localhost:5000/api/customer")
+      .get(base + "/api/customer")
       .then((res) => setOrders(res.data))
       .catch((err) => {
         console.log(`Error! : ${err}`);
@@ -102,7 +103,7 @@ export default function Orders() {
 
   const closeOrder = (id, closed, wrongAddress, noPayment, otherReport) => {
     axios
-      .patch("http://localhost:5000/api/customer/" + id, {
+      .patch(base + "/api/customer/" + id, {
         closed: !closed,
         wrongAddress,
         noPayment,
@@ -116,7 +117,7 @@ export default function Orders() {
 
   const reportOrder = (id, wrongAddress, noPayment, otherReport) => {
     axios
-      .patch("http://localhost:5000/api/customer/" + id, {
+      .patch(base + "/api/customer/" + id, {
         wrongAddress,
         noPayment,
         otherReport,
@@ -135,7 +136,7 @@ export default function Orders() {
     setProcessingModal(true);
     setTimeout(() => {
       axios
-        .delete("http://localhost:5000/api/customer/" + id)
+        .delete(base + "/api/customer/" + id)
         .then((res) => console.log(res.data))
         .catch((err) => {
           console.log(`Error! : ${err}`);
