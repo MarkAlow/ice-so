@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import {
   Menu,
@@ -6,46 +6,45 @@ import {
   IconButton,
   Typography,
   InputBase,
-  Badge
+  Badge,
 } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { Link } from "react-router-dom";
 import SVGLogo from "./SVGLogo";
-import SortIcon from "@material-ui/icons/Sort";
 import SearchIcon from "@material-ui/icons/Search";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import WarningIcon from "@material-ui/icons/Warning";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import Orders from "./Orders";
+// import SortIcon from "@material-ui/icons/Sort";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   title: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
-      display: "block"
-    }
+      display: "block",
+    },
   },
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
+      backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
-      width: "auto"
-    }
+      width: "auto",
+    },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -54,14 +53,14 @@ const useStyles = makeStyles(theme => ({
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   button: {
     padding: theme.spacing(21, 21),
-    color: "inherit"
+    color: "inherit",
   },
   inputRoot: {
-    color: "inherit"
+    color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -70,57 +69,55 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch"
-    }
+      width: "20ch",
+    },
   },
   sectionDesktop: {
     display: "none",
     [theme.breakpoints.up("md")]: {
-      display: "flex"
-    }
+      display: "flex",
+    },
   },
   sectionMobile: {
     display: "flex",
     [theme.breakpoints.up("md")]: {
-      display: "none"
-    }
-  }
+      display: "none",
+    },
+  },
 }));
 
 export default function PrimarySearchAppBar(props) {
+  const { handleChange, searchTerm, orders, dateDiff } = props;
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  // const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
-  const isMenuOpen = Boolean(anchorEl);
+  // const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleProfileMenuOpen = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
+  // const handleMenuClose = () => {
+  //   setAnchorEl(null);
+  //   handleMobileMenuClose();
+  // };
 
-  const handleMobileMenuOpen = event => {
+  const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-  React.useEffect(() => {
-    const results = props.orderIds.filter(id =>
-      id.toLowerCase().includes(props.searchTerm)
-    );
-    props.setSearchResults(results);
-  }, [props.searchTerm]);
-  const newarr = [];
+
+  // NEW ORDERS
+
   const countNew = () => {
-    props.orders.map(order =>
-      props.dateDiff(order.date) < 90
+    const newarr = [];
+    orders.map((order) =>
+      dateDiff(order.date) < 90
         ? !order.closed
           ? newarr.push(order.id)
           : null
@@ -128,10 +125,11 @@ export default function PrimarySearchAppBar(props) {
     );
     return newarr.length;
   };
+  // EXPIRED ORDERS
   const countExpired = () => {
     const newarr = [];
-    props.orders.map(order =>
-      props.dateDiff(order.date) > 90
+    orders.map((order) =>
+      dateDiff(order.date) > 90
         ? !order.closed
           ? newarr.push(order.id)
           : null
@@ -139,22 +137,22 @@ export default function PrimarySearchAppBar(props) {
     );
     return newarr.length;
   };
-  const menuId = "order-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>All</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Blocked </MenuItem>
-      <MenuItem onClick={handleMenuClose}>Closed </MenuItem>
-    </Menu>
-  );
+  // const menuId = "order-menu";
+  // const renderMenu = (
+  //   <Menu
+  //     anchorEl={anchorEl}
+  //     anchorOrigin={{ vertical: "top", horizontal: "right" }}
+  //     id={menuId}
+  //     keepMounted
+  //     transformOrigin={{ vertical: "top", horizontal: "right" }}
+  //     open={isMenuOpen}
+  //     onClose={handleMenuClose}
+  //   >
+  //     <MenuItem onClick={handleMenuClose}>All</MenuItem>
+  //     <MenuItem onClick={handleMenuClose}>Blocked </MenuItem>
+  //     <MenuItem onClick={handleMenuClose}>Closed </MenuItem>
+  //   </Menu>
+  // );
 
   const mobileMenuId = "order-menu-mobile";
   const renderMobileMenu = (
@@ -167,14 +165,14 @@ export default function PrimarySearchAppBar(props) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem onClick={handleProfileMenuOpen}>
+      {/* <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton aria-label='Sort Orders' color='inherit'>
           <Badge color='secondary'>
             <SortIcon />
           </Badge>
         </IconButton>
         <p>Sort Orders</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem>
         <IconButton aria-label='See New Orders' color='inherit'>
           <Badge badgeContent={countNew()} color='secondary'>
@@ -182,7 +180,7 @@ export default function PrimarySearchAppBar(props) {
           </Badge>
         </IconButton>
         <p>New Orders</p>
-      </MenuItem>{" "}
+      </MenuItem>
       <MenuItem>
         <IconButton aria-label='See New Orders' color='inherit'>
           <Badge badgeContent={countExpired()} color='secondary'>
@@ -216,18 +214,18 @@ export default function PrimarySearchAppBar(props) {
             </div>
             <InputBase
               placeholder='Search by id...'
-              value={props.searchTerm}
-              onChange={props.handleChange}
+              value={searchTerm}
+              onChange={handleChange}
               classes={{
                 root: classes.inputRoot,
-                input: classes.inputInput
+                input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
             />
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton
+            {/* <IconButton
               onClick={handleProfileMenuOpen}
               aria-label='Sort Orders'
               color='inherit'
@@ -235,7 +233,7 @@ export default function PrimarySearchAppBar(props) {
               <Badge color='secondary' aria-haspopup='true'>
                 <SortIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton aria-label='new orders notifications' color='inherit'>
               <Badge badgeContent={countNew() / 2} color='secondary'>
                 <NotificationsIcon />
@@ -264,7 +262,7 @@ export default function PrimarySearchAppBar(props) {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
+      {/* {renderMenu} */}
     </div>
   );
 }

@@ -4,14 +4,15 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
 export default function Products(props) {
+  const { iceCreams, handleAddToCart, cartItem, productCount } = props;
   return (
     <div>
       <grid-container id='iceCreamGrid'>
-        {props.iceCreams.map(icecream => (
+        {iceCreams.map((icecream) => (
           <grid-item
             style={{ padding: "1rem" }}
             key={icecream.id}
-            onClick={e => props.handleAddToCart(e, icecream)}
+            onClick={(e) => handleAddToCart(e, icecream)}
           >
             <h4
               id={icecream.id}
@@ -25,7 +26,7 @@ export default function Products(props) {
             <IconButton aria-label='Remove'>
               <RemoveIcon />
             </IconButton>
-            <span>0</span>
+            {productCount(icecream.id)}
             <IconButton aria-label='Add'>
               <AddIcon />
             </IconButton>

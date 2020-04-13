@@ -1,5 +1,4 @@
 body {
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   font-family: "Cubano";
@@ -16,6 +15,7 @@ body {
 }
 
 #headerMenu {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   z-index: 99;
   color: white;
@@ -27,8 +27,10 @@ body {
   align-items: center;
   height: 2rem;
   width: 100%;
-  display: grid;
   background: #333;
+}
+#headerMenu > grid-item {
+  cursor: pointer;
 }
 #daytons {
   position: relative;
@@ -40,17 +42,14 @@ body {
   font-size: 9rem;
 }
 #footerMenu {
-  grid-template-columns: 1fr;
-  color: white;
-  padding: 1rem;
   position: relative;
-  bottom: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
+  top: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin: 0 auto;
   width: 100%;
-  display: grid;
+  color: white;
+  text-align: center;
   background: #333;
 }
 #iceCreams {
@@ -70,6 +69,8 @@ body {
 }
 #cartItem {
   display: grid;
+  justify-content: center;
+  align-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 #iceCreamGrid {
@@ -79,6 +80,13 @@ body {
   cursor: pointer;
 }
 
+#logoWrapper {
+  margin: 0 auto;
+}
+
+#about {
+  margin: 0 auto;
+}
 #aboutCircle {
   border-radius: 50%;
   background: #eee;
@@ -90,7 +98,9 @@ body {
 }
 
 #aboutMenuGrid {
+  margin: 0 auto;
   display: grid;
+  justify-items: center;
   margin-bottom: 2rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -101,18 +111,21 @@ body {
 }
 
 #aboutDisplayGrid {
+  margin: 0 auto;
   display: grid;
+  justify-items: center;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 }
 
 .aboutDisplay {
+  width: 100%;
   box-shadow: 1px 1px 15px #ccc;
   display: inline-flex;
   justify-content: center;
+  text-align: center;
   border-radius: 1rem;
   align-items: center;
-  width: 100%;
   height: 15rem;
   background: #fff;
   animation: op 1s 1;
@@ -130,5 +143,8 @@ body {
   #cartModal {
     width: 95%;
     margin: 0 auto;
+  }
+  #iceCreamGrid {
+    grid-template-columns: 1fr 1fr;
   }
 }

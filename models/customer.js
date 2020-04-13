@@ -4,47 +4,51 @@ const Schema = mongoose.Schema;
 const CustomerSchema = new Schema({
   orderId: {
     type: String,
-    required: true
+    required: true,
   },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   phone: {
     type: Number,
-    required: true
+    required: true,
   },
   address: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
-    type: String
+    type: String,
   },
   lat: {
     type: Number,
-    required: true
+    required: true,
   },
   lng: {
     type: Number,
-    required: true
+    required: true,
   },
   closed: {
     type: Boolean,
-    required: true
+    required: true,
   },
   wrongAddress: {
     type: Boolean,
-    required: true
+    required: true,
   },
   noPayment: {
     type: Boolean,
-    required: true
+    required: true,
   },
   otherReport: {
     type: Boolean,
-    required: true
-  }
+    required: true,
+  },
+  iceCreams: {
+    type: Object,
+    required: true,
+  },
 });
 
 module.exports = Customer = mongoose.model("customer", CustomerSchema);

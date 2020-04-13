@@ -14,7 +14,7 @@ import {
   FormGroup,
   Checkbox,
   Typography,
-  Popper
+  Popper,
 } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -26,25 +26,31 @@ import LocationSearchingIcon from "@material-ui/icons/LocationSearching";
 import MoneyOffIcon from "@material-ui/icons/MoneyOff";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   popover: {
-    pointerEvents: "none"
+    pointerEvents: "none",
   },
   paper: {
     backgroundColor: "#fff",
     boxShadow: theme.shadows[1],
-    padding: theme.spacing(5, 5, 5)
+    padding: theme.spacing(5, 5, 5),
+  },
+  popup: {
+    backgroundColor: "rgba(133, 133, 133, 0.5)",
+    borderRadius: "0.3rem",
+    color: "white",
+    padding: theme.spacing(2, 2, 2),
   },
   margin: {
     margin: theme.spacing(1),
     padding: "1rem 2rem",
-    color: "black"
-  }
+    color: "black",
+  },
 }));
 
 export default function Orders() {
@@ -64,9 +70,9 @@ export default function Orders() {
   const [orderIds, setOrderIds] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setSearchTerm(e.target.value);
-    setOrderIds(orders.map(order => order.orderId));
+    setOrderIds(orders.map((order) => order.orderId));
   };
 
   useEffect(() => {
@@ -78,7 +84,7 @@ export default function Orders() {
   const tick = () => {
     setTime(moment().format("MMMM Do YYYY, h:mm:ss A"));
   };
-  const handlePopoverOpen = event => {
+  const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -88,8 +94,8 @@ export default function Orders() {
   const getOrders = () => {
     axios
       .get("http://localhost:5000/api/customer")
-      .then(res => setOrders(res.data))
-      .catch(err => {
+      .then((res) => setOrders(res.data))
+      .catch((err) => {
         console.log(`Error! : ${err}`);
       });
   };
@@ -100,10 +106,10 @@ export default function Orders() {
         closed: !closed,
         wrongAddress,
         noPayment,
-        otherReport
+        otherReport,
       })
-      .then(res => console.log(res.data))
-      .catch(err => {
+      .then((res) => console.log(res.data))
+      .catch((err) => {
         console.log(`Error! : ${err}`);
       });
   };
@@ -113,10 +119,10 @@ export default function Orders() {
       .patch("http://localhost:5000/api/customer/" + id, {
         wrongAddress,
         noPayment,
-        otherReport
+        otherReport,
       })
-      .then(res => console.log(res.data))
-      .catch(err => {
+      .then((res) => console.log(res.data))
+      .catch((err) => {
         console.log(`Error! : ${err}`);
       });
     console.log("Report Submitted");
@@ -125,26 +131,26 @@ export default function Orders() {
     setOtherReport(false);
   };
 
-  const deleteOrder = id => {
+  const deleteOrder = (id) => {
     setProcessingModal(true);
     setTimeout(() => {
       axios
         .delete("http://localhost:5000/api/customer/" + id)
-        .then(res => console.log(res.data))
-        .catch(err => {
+        .then((res) => console.log(res.data))
+        .catch((err) => {
           console.log(`Error! : ${err}`);
         });
       setProcessingModal(false);
-      setOrders(orders.filter(customer => customer._id !== id));
+      setOrders(orders.filter((customer) => customer._id !== id));
     }, 500);
   };
 
-  const orderDate = dateString => {
+  const orderDate = (dateString) => {
     let numDate = Number(dateString);
     let date = moment(numDate).fromNow();
     return date;
   };
-  const dateDiff = date => {
+  const dateDiff = (date) => {
     let numDate = Number(date);
     let nowDate = Number(Date.now());
     return ((nowDate - numDate) / 60000).toFixed(1);
@@ -154,8 +160,16 @@ export default function Orders() {
     setReportId(id);
     setReportOrderId(orderId);
   };
-
   const popoverOpen = Boolean(anchorEl);
+  var totalArr = [];
+  var totalReduced = 0;
+  const totalVal = (o) => {
+    var total = o.reduce((a, c) => a + c.price * c.count, 0).toFixed(2);
+    var totalInt = parseInt(total, 10);
+    totalArr.push(totalInt);
+    totalReduced = totalArr.reduce((a, c) => a + c);
+    return total;
+  };
   return (
     <div id='ordersBody'>
       {/*  */}
@@ -168,7 +182,7 @@ export default function Orders() {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500
+          timeout: 500,
         }}
       >
         <Fade in={processingModal}>
@@ -190,7 +204,7 @@ export default function Orders() {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500
+          timeout: 500,
         }}
       >
         <Fade in={reportOpen}>
@@ -247,12 +261,21 @@ export default function Orders() {
         orders={orders}
         dateDiff={dateDiff}
       />
-      <grid-container id='ui'>
+      <br />
+      {/* Initiate Total Order Value */}
+      <div style={{ display: "none" }}>
+        {orders.map((order) => totalVal(order.iceCreams))}
+      </div>
+      {/* Initiate Total Order Value */}
+      <Analytics time={time} orders={orders} totalReduced={totalReduced} />
+      <div id='ui'>
         <grid-container id='orders'>
           {orders
             .sort((a, b) => Number(b.date) - Number(a.date))
-            .filter(order => order.orderId.toLowerCase().includes(searchTerm))
-            .map(order => (
+            .filter((order) =>
+              order.orderId.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((order) => (
               <grid-item
                 id='order'
                 style={
@@ -278,7 +301,7 @@ export default function Orders() {
                     open={popoverOpen}
                     anchorEl={anchorEl}
                     onClose={handlePopoverClose}
-                    className={classes.paper}
+                    className={classes.popup}
                   >
                     <Typography>
                       Delete the order (CANNOT BE UNDONE!)
@@ -297,7 +320,7 @@ export default function Orders() {
                               style={{
                                 color: "#fcba03",
                                 position: "relative",
-                                top: "0.3rem"
+                                top: "0.3rem",
                               }}
                             />
                             <b>New&nbsp;&nbsp;&nbsp;</b>
@@ -308,7 +331,7 @@ export default function Orders() {
                               style={{
                                 color: "#cf1524",
                                 position: "relative",
-                                top: "0.3rem"
+                                top: "0.3rem",
                               }}
                             />
                             <b>Overdue&nbsp;&nbsp;&nbsp;</b>
@@ -329,7 +352,8 @@ export default function Orders() {
                         style={{ cursor: "pointer", color: "#ca3e47" }}
                       />
                     )}
-                    XX.XX
+                    {/* Order Total */}
+                    {totalVal(order.iceCreams)}
                   </h1>
                   <h5 style={{ color: "#ca3e47" }}>
                     {order.noPayment ? "NO PAYMENT MADE" : null}
@@ -344,19 +368,42 @@ export default function Orders() {
                     <span style={{ color: "#ccc" }}>Order for </span>
                     {order.name}
                   </h2>
+
                   <h2>
-                    <PhoneIcon style={{ color: "#eaeaea" }} />{" "}
+                    <PhoneIcon style={{ color: "#eaeaea" }} />
                     <div
                       style={{
                         display: "inline",
                         position: "relative",
                         top: "-0.3rem",
-                        fontWeight: 400
+                        fontWeight: 400,
                       }}
                     >
                       {order.phone}
                     </div>
                   </h2>
+                  <div id='productGridBg'>
+                    {order.iceCreams.map((ice) => (
+                      <grid-container className={ice.id} id='productGrid'>
+                        <grid-item>
+                          <img
+                            src={ice.pic}
+                            alt={ice.name}
+                            style={{ width: "3rem", marginRight: "1rem" }}
+                          ></img>
+                        </grid-item>
+                        <grid-item>
+                          {ice.count} &nbsp;&nbsp;&nbsp; x &nbsp;&nbsp;&nbsp;
+                          <b>{ice.name}</b>
+                        </grid-item>
+                        <grid-item>
+                          <i>${(ice.price * ice.count).toFixed(2)}</i>
+                        </grid-item>
+                        <br />
+                      </grid-container>
+                    ))}
+                  </div>
+                  <br />
                   <div id='orderLocation'>
                     <LocationSearchingIcon id='locIcon' />
                     {order.address}
@@ -407,8 +454,7 @@ export default function Orders() {
               </grid-item>
             ))}
         </grid-container>
-        <Analytics time={time} orders={orders} />
-      </grid-container>
+      </div>
     </div>
   );
 }

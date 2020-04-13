@@ -8,12 +8,12 @@ export default function About() {
   const [slides, setSlides] = useState([]);
   const [id, setId] = useState(1);
   useEffect(() => {
-    axios.get(`slides.json`).then(res => {
+    axios.get(`slides.json`).then((res) => {
       setSlides(res.data);
     });
   });
 
-  const setIds = e => {
+  const setIds = (e) => {
     var n = e.target;
     var name =
       n.getAttribute("name") ||
@@ -25,7 +25,7 @@ export default function About() {
   };
 
   return (
-    <div>
+    <div id='about'>
       <grid-containter onClick={setIds} id='aboutMenuGrid'>
         <grid-item name='1'>
           <div id='aboutCircle'>
@@ -48,8 +48,10 @@ export default function About() {
         <grid-item>
           <div className='aboutDisplay'>
             {slides
-              .filter(slider => slider.id.toString() === id || slider.id === id)
-              .map(slide => (
+              .filter(
+                (slider) => slider.id.toString() === id || slider.id === id
+              )
+              .map((slide) => (
                 <div key={id}>
                   {slide.description}
                   <br />

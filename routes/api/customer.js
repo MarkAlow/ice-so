@@ -11,7 +11,7 @@ const Customer = require("../../models/customer");
 router.get("/", (req, res) => {
   Customer.find()
     .sort({ name: -1 })
-    .then(items => res.json(items));
+    .then((items) => res.json(items));
 });
 
 // @route POST api/customer
@@ -29,13 +29,14 @@ router.post("/", (req, res) => {
     closed: req.body.closed,
     wrongAddress: req.body.wrongAddress,
     noPayment: req.body.noPayment,
-    otherReport: req.body.otherReport
+    otherReport: req.body.otherReport,
+    iceCreams: req.body.iceCreams,
   });
 
   newCustomer
     .save()
-    .then(customer => res.json(customer))
-    .catch(err => res.status(400).json("Error: " + err));
+    .then((customer) => res.json(customer))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 // @route PATCH api/icecreams
@@ -43,17 +44,17 @@ router.post("/", (req, res) => {
 // @access Public
 router.patch("/:id", (req, res) => {
   Customer.findById(req.params.id)
-    .then(customer =>
+    .then((customer) =>
       customer
         .update({
           closed: req.body.closed,
           wrongAddress: req.body.wrongAddress,
           noPayment: req.body.noPayment,
-          otherReport: req.body.otherReport
+          otherReport: req.body.otherReport,
         })
         .then(() => res.json({ updated: true }))
     )
-    .catch(err => res.status(404).json({ updated: false }));
+    .catch((err) => res.status(404).json({ updated: false }));
 });
 
 // @route DELETE api/icecreams
@@ -61,8 +62,10 @@ router.patch("/:id", (req, res) => {
 // @access Public
 router.delete("/:id", (req, res) => {
   Customer.findById(req.params.id)
-    .then(customer => customer.remove().then(() => res.json({ deleted: true })))
-    .catch(err => res.status(404).json({ deleted: false }));
+    .then((customer) =>
+      customer.remove().then(() => res.json({ deleted: true }))
+    )
+    .catch((err) => res.status(404).json({ deleted: false }));
 });
 
 module.exports = router;

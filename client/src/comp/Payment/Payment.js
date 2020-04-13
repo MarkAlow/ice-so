@@ -1,26 +1,20 @@
 import React from "react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-function Payment() {
-  const [count, setCount] = useState(1);
+import { Button } from "@material-ui/core";
+function Payment(props) {
+  const { name, address, cartItem } = props;
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>XX</button>
-      {count}
-      <h3>Order for Mark Alow</h3>
-      <h4>To: 233 Main St. Dayton OH</h4>
-      <hr />
-      <br />
-      <h5>14.89</h5>
+      <h3>Order for {name}</h3>
+      <h4>To: {address}</h4>
+      <hr />${cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(2)}
       <grid-container style={{ gridTemplateColumns: "1fr 1fr" }}>
         <grid-item>
-          <button disabled>Pay Online</button> <br />
+          <Button disabled>Pay Online</Button> <br />
           <i>Currently Unavailable</i>
         </grid-item>
         <Link to='/tu'>
-          <grid-item>
-            <button>Pay In Person</button>
-          </grid-item>
+          <Button>Pay In Person</Button>
         </Link>
       </grid-container>
     </div>

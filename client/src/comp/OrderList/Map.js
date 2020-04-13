@@ -11,9 +11,9 @@ class Map extends Component {
   state = {
     center: {
       lat: this.props.lat,
-      lng: this.props.lng
+      lng: this.props.lng,
     },
-    zoom: 12
+    zoom: 12,
   };
   componentDidMount() {
     setInterval(() => {
@@ -24,8 +24,8 @@ class Map extends Component {
     this.setState({
       center: {
         lat: this.props.lat,
-        lng: this.props.lng
-      }
+        lng: this.props.lng,
+      },
     });
   };
 

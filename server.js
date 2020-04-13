@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const customer = require("./routes/api/customer");
-const icecream = require("./routes/api/icecream");
 
 const cors = require("cors");
 const app = express();
@@ -15,11 +14,10 @@ const db = require("./config/keys").mongoURI;
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MONGO CONNECTED"))
-  .catch(err => console.log(`ERROR ERROR: ${err}`));
+  .catch((err) => console.log(`ERROR ERROR: ${err}`));
 
 //Use Routes
 app.use("/api/customer/", customer);
-app.use("/api/icecream/", icecream);
 
 //Serve the static assets if in production
 if (process.env.NODE_ENV === "production") {
