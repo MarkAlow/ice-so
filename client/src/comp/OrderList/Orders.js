@@ -102,7 +102,6 @@ export default function Orders() {
       .catch((err) => {
         console.log(`Error! : ${err}`);
       });
-    console.log("BASE:  " + base);
   };
 
   const closeOrder = (id, closed, wrongAddress, noPayment, otherReport) => {
