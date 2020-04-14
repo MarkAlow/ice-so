@@ -91,7 +91,7 @@ export default function Orders() {
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
-  let base = "";
+  let base = "" || "http://localhost:5000";
   const getOrders = () => {
     axios
       .get(base + "/api/customer")
