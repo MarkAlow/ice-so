@@ -1,17 +1,17 @@
 [
-    {
-        "id": 1,
-        "description": "Ice Cream description",
-        "pic": "https://img.url/1"
-    },
-    {
-        "id": 2,
-        "description": "Locations description",
-        "pic": "https://img.url/2"
-    },
-    {
-        "id": 3,
-        "description": "Markets description",
-        "pic": "https://img.url/3"
-    }
+  {
+    "id": 1,
+    "description": "We have a large variety of frozen products",
+    "pic": "slideimg/1.png"
+  },
+  {
+    "id": 2,
+    "description": "We deliver ice cream eveywhere in Dayton area",
+    "pic": "slideimg/2.png"
+  },
+  {
+    "id": 3,
+    "description": "We provide local businesses with frozen snacks for sale",
+    "pic": "slideimg/3.png"
+  }
 ]

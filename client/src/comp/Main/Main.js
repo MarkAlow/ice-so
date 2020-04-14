@@ -14,6 +14,7 @@ import {
   Select,
 } from "@material-ui/core";
 import Basket from "../../img/1x/cart.png";
+import Truck from "../../img/1x/truck.png";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -115,6 +116,14 @@ function Main(props) {
       </div>
       <br />
       <About />
+      <br />
+      <div id='orderWrapper'>
+        <div id='orderLine'>
+          <div id='orderCircle'>
+            <img src={Truck} alt='Order' id='orderImage'></img>
+          </div>
+        </div>
+      </div>
       <br />
       <FormControl variant='outlined' className={classes.formControl}>
         <InputLabel id='demo-simple-select-outlined-label'>Sort By</InputLabel>

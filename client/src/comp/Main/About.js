@@ -25,7 +25,7 @@ export default function About() {
   const setRandomIds = () => {
     setInterval(() => {
       setId(Math.floor(Math.random() * 3) + 1);
-    }, 3500);
+    }, 5500);
   };
   const setIds = (e) => {
     var n = e.target;
@@ -80,6 +80,12 @@ export default function About() {
               )
               .map((slide) => (
                 <div key={id}>
+                  <img
+                    alt={slide.description}
+                    id='aboutImage'
+                    src={slide.pic}
+                  />
+                  <br />
                   {slide.description}
                   <br />
                 </div>
