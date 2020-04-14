@@ -3,7 +3,7 @@ import axios from "axios";
 import iceCream from "../../img/2x/iceCream2x.png";
 import location from "../../img/2x/location2x.png";
 import market from "../../img/2x/market2x.png";
-
+import { makeStyles, Button } from "@material-ui/core";
 export default function About() {
   const [slides, setSlides] = useState([]);
   const [id, setId] = useState(1);
@@ -12,7 +12,21 @@ export default function About() {
       setSlides(res.data);
     });
   });
-
+  useEffect(() => {
+    setRandomIds();
+  }, []);
+  const useStyles = makeStyles((theme) => ({
+    circle: {
+      borderRadius: "50%",
+      width: "5rem",
+      height: "5rem",
+    },
+  }));
+  const setRandomIds = () => {
+    setInterval(() => {
+      setId(Math.floor(Math.random() * 3) + 1);
+    }, 3500);
+  };
   const setIds = (e) => {
     var n = e.target;
     var name =
@@ -24,23 +38,36 @@ export default function About() {
       : setId(name);
   };
 
+  const classes = useStyles();
   return (
     <div id='about'>
       <grid-containter onClick={setIds} id='aboutMenuGrid'>
         <grid-item name='1'>
-          <div id='aboutCircle'>
+          <Button
+            name='1'
+            className={classes.circle}
+            variant={id.toString() === "1" ? "outlined" : null}
+          >
             <img alt='' src={iceCream} />
-          </div>
+          </Button>
         </grid-item>
         <grid-item name='2'>
-          <div id='aboutCircle'>
+          <Button
+            name='2'
+            className={classes.circle}
+            variant={id.toString() === "2" ? "outlined" : null}
+          >
             <img alt='' src={location} />
-          </div>
+          </Button>
         </grid-item>
         <grid-item name='3'>
-          <div id='aboutCircle'>
+          <Button
+            name='3'
+            className={classes.circle}
+            variant={id.toString() === "3" ? "outlined" : null}
+          >
             <img alt='' src={market} />
-          </div>
+          </Button>
         </grid-item>
       </grid-containter>
 

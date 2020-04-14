@@ -104,6 +104,10 @@ function App() {
     return countARR[order];
   };
 
+  //CHANGE CART PRODUCT COUNT
+  const changeCount = (e, item) => {
+    console.log(item, e.target.value);
+  };
   // END ICE CREAM CART
   // SORT ICE CREAMS
   const listProducts = () => {
@@ -139,6 +143,7 @@ function App() {
                 handleSortChange={handleSortChange}
                 sort={sort}
                 productCount={productCount}
+                changeCount={changeCount}
               />
             </Route>
             <Route path='/ct'>
@@ -153,6 +158,7 @@ function App() {
                 setAddress={setAddress}
                 cartItem={cartItem}
                 onSubmit={onSubmit}
+                changeCount={changeCount}
               />
             </Route>
             <Route path='/pt'>

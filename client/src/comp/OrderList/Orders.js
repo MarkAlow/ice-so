@@ -383,6 +383,7 @@ export default function Orders() {
                       {order.phone}
                     </div>
                   </h2>
+                  {/* ORDER ICE CREAMS (PRODUCTS) */}
                   <div id='productGridBg'>
                     {order.iceCreams.map((ice) => (
                       <grid-container className={ice.id} id='productGrid'>
@@ -404,6 +405,7 @@ export default function Orders() {
                       </grid-container>
                     ))}
                   </div>
+                  {/* END ORDER PRODUCTS */}
                   <br />
                   <div id='orderLocation'>
                     <LocationSearchingIcon id='locIcon' />

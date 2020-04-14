@@ -50,7 +50,7 @@ grid-container {
 #date {
   text-align: right;
   border-radius: 0.2rem;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 1rem 2rem 0rem 2rem;
 }
 #analytics > grid-item {
   display: grid;
@@ -131,5 +131,8 @@ grid-container {
     grid-template-columns: 1fr;
     background: #fff;
     border: 1px solid #ccc;
+  }
+  #productGridBg {
+    padding: 1rem;
   }
 }

@@ -15,6 +15,7 @@ function Checkout(props) {
     handleAddressSuggestions,
     coordinates,
     onSubmit,
+    changeCount,
   } = props;
   return (
     <div>
@@ -30,9 +31,8 @@ function Checkout(props) {
           <grid-item>
             <TextField
               defaultValue={item.count}
-              onChange={() => {
-                console.log(cartItem);
-              }}
+              variant='outlined'
+              onChange={changeCount}
               size='small'
             ></TextField>
           </grid-item>

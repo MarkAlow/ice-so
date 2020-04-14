@@ -4,7 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
 export default function Products(props) {
-  const { iceCreams, handleAddToCart, cartItem, productCount } = props;
+  const { iceCreams, handleAddToCart, productCount } = props;
   return (
     <div>
       <grid-container id='iceCreamGrid'>

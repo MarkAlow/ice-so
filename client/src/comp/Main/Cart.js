@@ -31,7 +31,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Cart(props) {
   const classes = useStyles();
-  const { open, handleClose, cartItem, handleRemoveFromCart } = props;
+  const {
+    open,
+    handleClose,
+    cartItem,
+    handleRemoveFromCart,
+    changeCount,
+  } = props;
+
   return (
     <div id='cartBody'>
       <Modal
@@ -49,7 +56,9 @@ export default function Cart(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id='transition-modal-title'>Your Order</h2>
+            <h2 id='transition-modal-title'>
+              {cartItem.length > 0 ? "Your Order" : "Cart is empty"}
+            </h2>
             {cartItem.map((item) => (
               <grid-container key={item.id} id='cartItem'>
                 <grid-item>
@@ -65,9 +74,8 @@ export default function Cart(props) {
                 <grid-item>
                   <TextField
                     defaultValue={item.count}
-                    onChange={() => {
-                      console.log(cartItem);
-                    }}
+                    variant='outlined'
+                    onChange={(e) => changeCount(item.count)}
                     size='small'
                   ></TextField>
                 </grid-item>
@@ -90,19 +98,17 @@ export default function Cart(props) {
               </span>
             </div>
             <br /> <br />
-            <Link
-              to='/ct'
-              style={{ textDecoration: "none" }}
-              onClick={() => console.log("SENT")}
-            >
-              <Button
-                style={{ background: "#f2d68b", borderRadius: "1rem" }}
-                color='primary'
-                className={classes.margin}
-                type='button'
-              >
-                Check Out
-              </Button>
+            <Link to='/ct' style={{ textDecoration: "none" }}>
+              {cartItem.length > 0 && (
+                <Button
+                  style={{ background: "#f2d68b", borderRadius: "1rem" }}
+                  color='primary'
+                  className={classes.margin}
+                  type='button'
+                >
+                  Check Out
+                </Button>
+              )}
             </Link>
           </div>
         </Fade>

@@ -39,6 +39,7 @@ function Main(props) {
     handleSortChange,
     sort,
     productCount,
+    changeCount,
   } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -81,10 +82,10 @@ function Main(props) {
           open={open}
           handleClose={handleClose}
           cartItem={cartItem}
+          changeCount={changeCount}
           handleRemoveFromCart={handleRemoveFromCart}
         />
       </div>
-      <Header />
       <br />
       <div id='logoWrapper'>
         <div
@@ -137,6 +138,7 @@ function Main(props) {
         cartItem={cartItem}
         productCount={productCount}
       />
+      <Header />
       <Footer />
     </div>
   );
