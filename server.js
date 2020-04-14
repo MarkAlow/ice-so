@@ -2,9 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const customer = require("./routes/api/customer");
 
+const cors = require("cors");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 //db config
 const db = require("./config/keys").mongoURI;
 
