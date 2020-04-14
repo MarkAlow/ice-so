@@ -67,9 +67,14 @@ function App() {
 
   // START ICE CREAM CART
   const [iceCreams, setIceCreams] = useState([]);
+  const [slides, setSlides] = useState([]);
+
   useEffect(() => {
     axios.get(`ice.json`).then((res) => {
       setIceCreams(res.data);
+    });
+    axios.get(`slides.json`).then((res) => {
+      setSlides(res.data);
     });
   });
 
@@ -147,6 +152,7 @@ function App() {
                 sort={sort}
                 productCount={productCount}
                 changeCount={changeCount}
+                slides={slides}
               />
             </Route>
             <Route path='/ct'>

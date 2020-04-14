@@ -4,14 +4,9 @@ import iceCream from "../../img/2x/iceCream2x.png";
 import location from "../../img/2x/location2x.png";
 import market from "../../img/2x/market2x.png";
 import { makeStyles, Button } from "@material-ui/core";
-export default function About() {
-  const [slides, setSlides] = useState([]);
+export default function About(props) {
+  const { slides } = props;
   const [id, setId] = useState(1);
-  useEffect(() => {
-    axios.get(`slides.json`).then((res) => {
-      setSlides(res.data);
-    });
-  });
   useEffect(() => {
     setRandomIds();
   }, []);
