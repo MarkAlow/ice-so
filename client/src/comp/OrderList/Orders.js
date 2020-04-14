@@ -77,7 +77,7 @@ export default function Orders() {
 
   useEffect(() => {
     getOrders();
-    setInterval(getOrders, 50);
+    setInterval(getOrders, 250);
     setInterval(() => tick(), 1000);
   }, []);
 
@@ -91,7 +91,7 @@ export default function Orders() {
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
-  let base = "" || "http://localhost:5000";
+  let base = "";
   const getOrders = () => {
     axios
       .get(base + "/api/customer")
