@@ -41,7 +41,6 @@ function Main(props) {
     sort,
     productCount,
     changeCount,
-    slides,
   } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -116,7 +115,7 @@ function Main(props) {
         </div>
       </div>
       <br />
-      <About slides={slides} />
+      <About />
       <br />
       <div id='orderWrapper'>
         <div id='orderLine'>
