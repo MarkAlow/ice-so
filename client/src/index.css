@@ -106,7 +106,7 @@ body {
 .aboutDisplay {
   margin: 0 auto;
   width: 35vw;
-  box-shadow: 1px 1px 15px #ccc;
+  border: 1px solid #ccc;
   display: inline-flex;
   justify-content: center;
   text-align: center;

@@ -41,6 +41,7 @@ function Main(props) {
     sort,
     productCount,
     changeCount,
+    total,
   } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -59,7 +60,7 @@ function Main(props) {
         {/* Cart */}
         <Button
           style={{
-            background: "#eee",
+            background: "#fff",
             borderRadius: "1rem",
             position: "fixed",
             top: 0,
@@ -73,10 +74,7 @@ function Main(props) {
           onClick={handleOpen}
         >
           <img src={Basket} alt='Cart' style={{ marginRight: "1rem" }} /> Cart{" "}
-          <span>
-            &nbsp; $
-            {cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(2)}
-          </span>
+          <span>&nbsp; ${total}</span>
         </Button>
 
         <Cart
@@ -134,9 +132,6 @@ function Main(props) {
           onChange={handleSortChange}
           label='Sort By'
         >
-          <MenuItem value={"popularity"} disabled>
-            Popularity
-          </MenuItem>
           <MenuItem value={"lowestprice"}>Lowest Price</MenuItem>
           <MenuItem value={"highestprice"}>Highest Price</MenuItem>
         </Select>

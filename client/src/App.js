@@ -65,16 +65,9 @@ function App() {
       .catch((err) => console.log("Error! - " + err));
   };
 
-  // START ICE CREAM CART
   const [iceCreams, setIceCreams] = useState([]);
-  const [slides, setSlides] = useState([]);
 
-  useEffect(() => {
-    axios.get(`ice.json`).then((res) => {
-      setIceCreams(res.data);
-    });
-  });
-
+  // START ICE CREAM CART
   const handleAddToCart = (e, product) => {
     let productAlreadyInCart = false;
 
@@ -89,6 +82,7 @@ function App() {
       cartItem.push({ ...product, count: 1 });
     }
     localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    cartButtonTotal();
     return { cartItem };
   };
 
@@ -119,10 +113,10 @@ function App() {
     if (sort !== "") {
       iceCreams.sort((a, b) =>
         sort === "lowestprice"
-          ? a.price < b.price
+          ? a.price > b.price
             ? 1
             : -1
-          : a.price > b.price
+          : a.price < b.price
           ? 1
           : -1
       );
@@ -134,6 +128,23 @@ function App() {
     setSort(e.target.value);
     listProducts();
   };
+  const getIceCreams = () => {
+    axios.get(`ice.json`).then((res) => {
+      setIceCreams(res.data);
+    });
+  };
+  const [total, setTotal] = useState(0.0);
+  const cartButtonTotal = () => {
+    const total = cartItem
+      .reduce((a, c) => a + c.price * c.count, 0)
+      .toFixed(2);
+    setTotal(total);
+  };
+
+  useEffect(() => {
+    getIceCreams();
+  }, [listProducts()]);
+
   return (
     <Provider store={store}>
       <Router>
@@ -149,6 +160,7 @@ function App() {
                 sort={sort}
                 productCount={productCount}
                 changeCount={changeCount}
+                total={total}
               />
             </Route>
             <Route path='/ct'>

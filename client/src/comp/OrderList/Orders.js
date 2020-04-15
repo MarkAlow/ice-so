@@ -68,7 +68,6 @@ export default function Orders() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [orderIds, setOrderIds] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -261,7 +260,6 @@ export default function Orders() {
         handleChange={handleChange}
         searchTerm={searchTerm}
         orderIds={orderIds}
-        setSearchResults={setSearchResults}
         orders={orders}
         dateDiff={dateDiff}
       />
@@ -389,7 +387,11 @@ export default function Orders() {
                   {/* ORDER ICE CREAMS (PRODUCTS) */}
                   <div id='productGridBg'>
                     {order.iceCreams.map((ice) => (
-                      <grid-container className={ice.id} id='productGrid'>
+                      <grid-container
+                        key={ice.id}
+                        className={ice.id}
+                        id='productGrid'
+                      >
                         <grid-item>
                           <img
                             src={ice.pic}
