@@ -122,7 +122,6 @@ function Main(props) {
           iceCreams={iceCreams}
           handleAddToCart={handleAddToCart}
           cartItem={cartItem}
-          productCount={productCount}
         />
       </div>
       <Header />

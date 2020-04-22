@@ -187,6 +187,17 @@ body {
     opacity: 1;
   }
 }
+#thankYouWrap {
+  text-align: center;
+  margin-top: 5rem;
+}
+#thankYou {
+  margin: 0 auto;
+  width: 25%;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  font-weight: 300;
+}
 @media screen and (max-width: 960px) {
   #cartModal {
     width: 95%;
@@ -203,5 +214,8 @@ body {
   }
   #orderImage {
     display: none;
+  }
+  #thankYou {
+    width: 95%;
   }
 }

@@ -4,7 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 
 export default function Products(props) {
-  const { iceCreams, handleAddToCart, productCount } = props;
+  const { iceCreams, handleAddToCart } = props;
   return (
     <div>
       <grid-container id='iceCreamGrid'>
@@ -26,7 +26,7 @@ export default function Products(props) {
             <IconButton aria-label='Remove'>
               <RemoveIcon />
             </IconButton>
-            {productCount(icecream.id)}
+            {icecream.count}
             <IconButton aria-label='Add'>
               <AddIcon />
             </IconButton>

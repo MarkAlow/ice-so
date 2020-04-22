@@ -53,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Orders() {
+export default function Orders(props) {
+  const { formatPhoneNumber } = props;
   const classes = useStyles();
   const [orders, setOrders] = useState([]);
   const [time, setTime] = useState(moment().format("MMMM Do YYYY, h:mm:ss A"));
@@ -381,7 +382,7 @@ export default function Orders() {
                         fontWeight: 400,
                       }}
                     >
-                      {order.phone}
+                      {formatPhoneNumber(order.phone)}
                     </div>
                   </h2>
                   {/* ORDER ICE CREAMS (PRODUCTS) */}

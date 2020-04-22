@@ -38,7 +38,63 @@
     "id": 6,
     "name": "Turtle Bunny",
     "price": 3.6,
-    "description": "This ice cream is made out of a lot of cherries.",
+    "description": "",
     "pic": "iceimg/turtleIce.png"
+  },
+  {
+    "id": 7,
+    "name": "Simply Vanilla",
+    "price": 1.9,
+    "description": "",
+    "pic": "iceimg/simplyVanillaICE.png"
+  },
+  {
+    "id": 8,
+    "name": "BIG Vanilla",
+    "price": 2.9,
+    "description": "",
+    "pic": "iceimg/bigVanillaICE.png"
+  },
+  {
+    "id": 9,
+    "name": "Cookies & Cream",
+    "price": 2.9,
+    "description": "",
+    "pic": "iceimg/cookiesICE.png"
+  },
+  {
+    "id": 10,
+    "name": "Strawberry Shortcake",
+    "price": 1.9,
+    "description": "",
+    "pic": "iceimg/strawberryICE.png"
+  },
+  {
+    "id": 11,
+    "name": "Hot Fudge",
+    "price": 2.9,
+    "description": "",
+    "pic": "iceimg/fudgeICE.png"
+  },
+  {
+    "id": 12,
+    "name": "Choco Taco",
+    "price": 4.1,
+    "description": "",
+    "pic": "iceimg/tacoICE.png"
+  },
+  {
+    "id": 13,
+    "name": "Jolly Rancher",
+    "price": 3.2,
+    "description": "",
+    "pic": "iceimg/jollyICE.png"
+  },
+  {
+    "id": 14,
+    "name": "Cotton Candy",
+    "price": 2.6,
+    "description": "",
+    "pic": "iceimg/cottonICE.png"
   }
 ]

@@ -75,6 +75,7 @@ function App() {
       if (item.id === product.id) {
         item.count += 1;
         productAlreadyInCart = true;
+        console.log(` ${product.name} count: ${item.count}`);
       }
     });
 
@@ -93,15 +94,6 @@ function App() {
   };
 
   //PRODUCT CART COUNT
-  const productCount = (order) => {
-    var countArr = [];
-    var count = cartItem.map((item) => (
-      <span key={item.name}>{item.count}</span>
-    ));
-    countArr.push(count);
-    const countARR = countArr[0];
-    return countARR[order];
-  };
 
   //CHANGE CART PRODUCT COUNT
   const changeCount = (e, item) => {
@@ -141,6 +133,21 @@ function App() {
     setTotal(total);
   };
 
+  // FORMAT PHONE NUMBER
+  let formatPhoneNumber = (str) => {
+    //Filter only numbers from the input
+    let cleaned = ("" + str).replace(/\D/g, "");
+
+    //Check if the input is of correct length
+    let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+
+    if (match) {
+      return "(" + match[1] + ") " + match[2] + "-" + match[3];
+    }
+
+    return null;
+  };
+
   useEffect(() => {
     getIceCreams();
   }, [listProducts()]);
@@ -158,7 +165,6 @@ function App() {
                 handleAddToCart={handleAddToCart}
                 handleSortChange={handleSortChange}
                 sort={sort}
-                productCount={productCount}
                 changeCount={changeCount}
                 total={total}
               />
@@ -176,6 +182,7 @@ function App() {
                 cartItem={cartItem}
                 onSubmit={onSubmit}
                 changeCount={changeCount}
+                formatPhoneNumber={formatPhoneNumber}
               />
             </Route>
             <Route path='/pt'>
@@ -187,10 +194,10 @@ function App() {
               />
             </Route>
             <Route path='/tu'>
-              <Thankyou />
+              <Thankyou phone={phone} formatPhoneNumber={formatPhoneNumber} />
             </Route>
             <Route parth='/orders'>
-              <Orders />
+              <Orders formatPhoneNumber={formatPhoneNumber} />
             </Route>
           </Switch>
         </div>

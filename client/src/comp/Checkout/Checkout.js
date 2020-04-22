@@ -18,6 +18,7 @@ function Checkout(props) {
     coordinates,
     onSubmit,
     changeCount,
+    formatPhoneNumber,
   } = props;
   return (
     <div>
@@ -75,7 +76,7 @@ function Checkout(props) {
             <br />
             <TextField
               variant='outlined'
-              value={phone}
+              value={formatPhoneNumber(phone)}
               label='Your Phone'
               onChange={(e) => setPhone(e.target.value)}
             ></TextField>{" "}
@@ -117,37 +118,45 @@ function Checkout(props) {
                 </div>
               )}
             </PlacesAutoComplete>
-          </div>{" "}
+          </div>
           <br />
           <SimpleMap
             lat={coordinates.lat ? Number(coordinates.lat) : 39.764334}
             lng={coordinates.lng ? Number(coordinates.lng) : -84.190472}
-          />{" "}
+          />
           <br />
-          {phone && address && name ? (
-            <Link to='/pt' style={{ textDecoration: "none" }}>
+          {formatPhoneNumber(phone) &&
+          address &&
+          name.length > 2 &&
+          name.length < 20 &&
+          coordinates.lat ? (
+            <Link to='/pt' style={{ textDecoration: "none", margin: "0 auto" }}>
               <Button
                 label='Submit'
                 onClick={onSubmit}
                 style={{ border: "1px #ccc solid", padding: "1rem" }}
               >
-                SUBMIT
+                SUBMIT ORDER
               </Button>
             </Link>
           ) : (
             <Button
               label='Submit'
-              style={{ border: "1px #ccc solid", padding: "1rem" }}
+              style={{
+                border: "1px #ccc solid",
+                padding: "1rem",
+                width: "30%",
+              }}
               disabled
             >
-              SUBMIT
+              PLEASE FILL THE FORM OUT
             </Button>
           )}
           <br />
         </div>
       ) : (
         <div id='mainFlexWrapper' style={{ marginTop: "6rem" }}>
-          <p>Checkout is unavailable</p>{" "}
+          <p>Checkout is unavailable</p>
           <Link to='/' exact style={{ textDecoration: "none" }}>
             <Button
               label='Submit'
