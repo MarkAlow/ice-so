@@ -6,8 +6,15 @@ export default function Footer() {
     return d.getFullYear();
   };
   return (
-    <grid-container id='footerMenu'>
+    <span
+      style={{
+        display: "grid",
+        justifyContent: "center",
+        marginBottom: "1rem",
+        marginTop: "1rem",
+      }}
+    >
       HM Frozen Food, LLC. {year()}
-    </grid-container>
+    </span>
   );
 }

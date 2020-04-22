@@ -4,7 +4,7 @@ import About from "./About";
 import Footer from "./Footer";
 import Products from "./Products";
 import Cart from "./Cart";
-import ICEBG from "./ICEbg";
+import Logo from "./Logo";
 import {
   makeStyles,
   Button,
@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
+    width: "40%",
+    left: 0,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -86,62 +88,43 @@ function Main(props) {
         />
       </div>
       <br />
-      <div id='logoWrapper'>
-        <div
-          style={{
-            backgroundImage: `url(${ICEBG}) repeat`,
-            position: "absolute",
-            marginLeft: "0.2rem",
-            marginTop: "0.2rem",
-            color: "#675f68",
-          }}
-        >
-          <span id='daytons'>DAYTON'S</span>
-          <br />
-          <span id='best'>BEST</span>
-        </div>
-        <div
-          style={{
-            position: "relative",
-            backgroundImage: `url(${ICEBG})`,
-            color: "#f2d68b",
-          }}
-        >
-          <span id='daytons'>DAYTON'S</span>
-          <br />
-          <span id='best'>BEST</span>
-        </div>
+      <div>
+        <Logo />
       </div>
-      <br />
-      <About />
-      <br />
-      <div id='orderWrapper'>
-        <div id='orderLine'>
-          <div id='orderCircle'>
-            <img src={Truck} alt='Order' id='orderImage'></img>
+      <div id='mainFlexWrapper'>
+        <br />
+        <About />
+        <br />
+        <div id='orderWrapper'>
+          <div id='orderLine'>
+            <div id='orderCircle'>
+              <img src={Truck} alt='Order' id='orderImage'></img>
+            </div>
           </div>
         </div>
+        <br />
+        <FormControl variant='outlined' className={classes.formControl}>
+          <InputLabel id='demo-simple-select-outlined-label'>
+            Sort By
+          </InputLabel>
+          <Select
+            labelId='demo-simple-select-outlined-label'
+            id='demo-simple-select-outlined'
+            value={sort}
+            onChange={handleSortChange}
+            label='Sort By'
+          >
+            <MenuItem value={"lowestprice"}>Lowest Price</MenuItem>
+            <MenuItem value={"highestprice"}>Highest Price</MenuItem>
+          </Select>
+        </FormControl>
+        <Products
+          iceCreams={iceCreams}
+          handleAddToCart={handleAddToCart}
+          cartItem={cartItem}
+          productCount={productCount}
+        />
       </div>
-      <br />
-      <FormControl variant='outlined' className={classes.formControl}>
-        <InputLabel id='demo-simple-select-outlined-label'>Sort By</InputLabel>
-        <Select
-          labelId='demo-simple-select-outlined-label'
-          id='demo-simple-select-outlined'
-          value={sort}
-          onChange={handleSortChange}
-          label='Sort By'
-        >
-          <MenuItem value={"lowestprice"}>Lowest Price</MenuItem>
-          <MenuItem value={"highestprice"}>Highest Price</MenuItem>
-        </Select>
-      </FormControl>
-      <Products
-        iceCreams={iceCreams}
-        handleAddToCart={handleAddToCart}
-        cartItem={cartItem}
-        productCount={productCount}
-      />
       <Header />
       <Footer />
     </div>

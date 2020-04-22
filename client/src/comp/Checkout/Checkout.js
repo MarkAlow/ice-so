@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "../Main/Header";
 import SimpleMap from "../OrderList/Map";
 import { Button, TextField } from "@material-ui/core";
 import Truck from "../../img/1x/truck.png";
@@ -21,7 +22,7 @@ function Checkout(props) {
   return (
     <div>
       {cartItem.length > 0 ? (
-        <div>
+        <div id='mainFlexWrapper' style={{ marginTop: "5rem" }}>
           <div id='orderWrapper'>
             <div id='orderLine'>
               <Link to='/' exact style={{ textDecoration: "none" }}>
@@ -65,16 +66,20 @@ function Checkout(props) {
           <br />
           <div style={{ margin: "0 auto", textAlign: "center" }}>
             <TextField
+              variant='outlined'
               value={name}
               label='Your Name'
               onChange={(e) => setName(e.target.value)}
             ></TextField>{" "}
             <br />
+            <br />
             <TextField
+              variant='outlined'
               value={phone}
               label='Your Phone'
               onChange={(e) => setPhone(e.target.value)}
             ></TextField>{" "}
+            <br />
             <br />
             <PlacesAutoComplete
               value={address}
@@ -89,6 +94,7 @@ function Checkout(props) {
               }) => (
                 <div>
                   <TextField
+                    variant='outlined'
                     label='Your Address'
                     onChange={(e) => setAddress(e.target.value)}
                     {...getInputProps({})}
@@ -116,21 +122,31 @@ function Checkout(props) {
           <SimpleMap
             lat={coordinates.lat ? Number(coordinates.lat) : 39.764334}
             lng={coordinates.lng ? Number(coordinates.lng) : -84.190472}
-          />
-          <Link to='/pt' style={{ textDecoration: "none" }}>
-            <br />
+          />{" "}
+          <br />
+          {phone && address && name ? (
+            <Link to='/pt' style={{ textDecoration: "none" }}>
+              <Button
+                label='Submit'
+                onClick={onSubmit}
+                style={{ border: "1px #ccc solid", padding: "1rem" }}
+              >
+                SUBMIT
+              </Button>
+            </Link>
+          ) : (
             <Button
               label='Submit'
-              onClick={onSubmit}
               style={{ border: "1px #ccc solid", padding: "1rem" }}
+              disabled
             >
               SUBMIT
             </Button>
-          </Link>
+          )}
           <br />
         </div>
       ) : (
-        <div style={{ display: "grid", justifyContent: "center" }}>
+        <div id='mainFlexWrapper' style={{ marginTop: "6rem" }}>
           <p>Checkout is unavailable</p>{" "}
           <Link to='/' exact style={{ textDecoration: "none" }}>
             <Button
@@ -143,6 +159,7 @@ function Checkout(props) {
           </Link>
         </div>
       )}
+      <Header />
     </div>
   );
 }

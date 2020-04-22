@@ -1,6 +1,5 @@
 body {
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
   font-family: "Cubano";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,7 +12,22 @@ body {
     url("font/cubano.eot"), url("font/cubano.ttf") format("truetype"),
     url("font/cubano.woff") format("woff");
 }
-
+#mainFlexWrapper {
+  display: grid;
+  justify-content: center;
+}
+#logoW {
+  display: grid;
+  margin: 0 auto;
+}
+#logoWrapper {
+  margin: 0 auto;
+}
+#iii {
+  transform: scale(0.7);
+  padding-top: 11rem;
+  position: absolute;
+}
 #headerMenu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -44,13 +58,12 @@ body {
 #footerMenu {
   padding: 0;
   margin: 0;
-  width: 120vw;
   z-index: 99;
   color: white;
   position: relative;
   bottom: 0;
   left: 0;
-  height: 2rem;
+  height: 4rem;
   width: 100%;
   background: #333;
 }
@@ -80,10 +93,6 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat();
   cursor: pointer;
-}
-
-#logoWrapper {
-  margin: 0 auto;
 }
 
 #about {
