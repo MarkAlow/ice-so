@@ -201,4 +201,7 @@ body {
   #aboutImage {
     width: 95%;
   }
+  #orderImage {
+    display: none;
+  }
 }
