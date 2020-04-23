@@ -60,14 +60,14 @@
     "name": "Cookies & Cream",
     "price": 2.9,
     "description": "",
-    "pic": "iceimg/cookiesICE.png"
+    "pic": "iceimg/cookiesIce.png"
   },
   {
     "id": 10,
     "name": "Strawberry Shortcake",
     "price": 1.9,
     "description": "",
-    "pic": "iceimg/strawberryICE.png"
+    "pic": "iceimg/strawberryIce.png"
   },
   {
     "id": 11,
