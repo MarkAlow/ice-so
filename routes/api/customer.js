@@ -46,7 +46,7 @@ router.patch("/:id", (req, res) => {
   Customer.findById(req.params.id)
     .then((customer) =>
       customer
-        .update({
+        .updateOne({
           closed: req.body.closed,
           wrongAddress: req.body.wrongAddress,
           noPayment: req.body.noPayment,

@@ -19,8 +19,8 @@ function Logo() {
                 position: "absolute",
                 marginLeft: "0.2rem",
                 marginTop: "0.2rem",
-                color: "#675f68",
               }}
+              id='labelBottom'
             >
               <span id='daytons'>DAYTON'S</span>
               <br />
@@ -30,8 +30,8 @@ function Logo() {
               style={{
                 position: "relative",
                 backgroundImage: `url(${ICEBG})`,
-                color: "#f2d68b",
               }}
+              id='labelTop'
             >
               <span id='daytons'>DAYTON'S</span>
               <br />
@@ -39,7 +39,7 @@ function Logo() {
             </div>
           </grid-item>
           <grid-item id='iii'>
-            <img src={ILogo} alt='Order' id='orderImage'></img>
+            <img src={ILogo} alt='Order' id='orderImage' />
           </grid-item>
         </grid-container>
       </div>

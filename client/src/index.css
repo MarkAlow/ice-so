@@ -27,6 +27,155 @@ body {
   background: #eee;
   height: 25rem;
   position: absolute;
+  animation: animatedBackground 20s infinite linear;
+  -webkit-animation: animatedBackground 20s infinite linear;
+}
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+@-webkit-keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+#labelTop {
+  color: #f2d68b;
+  animation: colorchangeTop 10s infinite;
+  -webkit-animation: colorchangeTop 10s infinite; /* Chrome and Safari */
+}
+
+@keyframes colorchangeTop {
+  0% {
+    color: #f2d68b;
+  }
+  20% {
+    color: #f2d68b;
+  }
+  25% {
+    color: #3b3246;
+  }
+  45% {
+    color: #3b3246;
+  }
+  50% {
+    color: rgb(203, 250, 127);
+  }
+  70% {
+    color: rgb(203, 250, 127);
+  }
+  75% {
+    color: #8bf2d3;
+  }
+  95% {
+    color: #8bf2d3;
+  }
+  100% {
+    color: #f2d68b;
+  }
+}
+
+@-webkit-keyframes colorchangeTop /* Safari and Chrome - necessary duplicate */ {
+  0% {
+    color: #f2d68b;
+  }
+  20% {
+    color: #f2d68b;
+  }
+  25% {
+    color: #222;
+  }
+  45% {
+    color: #222;
+  }
+  50% {
+    color: #ebaa6e;
+  }
+  70% {
+    color: #ebaa6e;
+  }
+  75% {
+    color: #8bf2d3;
+  }
+  95% {
+    color: #8bf2d3;
+  }
+  100% {
+    color: #f2d68b;
+  }
+}
+
+#labelBottom {
+  color: #675f68;
+  animation: colorchangeBottom 10s infinite;
+  -webkit-animation: colorchangeBottom 10s infinite; /* Chrome and Safari */
+}
+
+@keyframes colorchangeBottom {
+  0% {
+    color: #675f68;
+  }
+  20% {
+    color: #675f68;
+  }
+  25% {
+    color: #bb93ae;
+  }
+  45% {
+    color: #bb93ae;
+  }
+  50% {
+    color: #756d5c;
+  }
+  70% {
+    color: #756d5c;
+  }
+  75% {
+    color: #537980;
+  }
+  95% {
+    color: #537980;
+  }
+  100% {
+    color: #675f68;
+  }
+}
+
+@-webkit-keyframes colorchangeBottom /* Safari and Chrome - necessary duplicate */ {
+  0% {
+    color: #675f68;
+  }
+  20% {
+    color: #675f68;
+  }
+  25% {
+    color: #bb93ae;
+  }
+  45% {
+    color: #bb93ae;
+  }
+  50% {
+    color: #756d5c;
+  }
+  70% {
+    color: #756d5c;
+  }
+  75% {
+    color: #537980;
+  }
+  95% {
+    color: #537980;
+  }
+  100% {
+    color: #675f68;
+  }
 }
 
 #logoLINE {
@@ -34,14 +183,13 @@ body {
   background: #f3c461;
   margin-top: -1rem;
   height: 0.3rem;
-  position: relative;
-  z-index: 10;
 }
 #logoWrapper {
   margin: 0 auto;
 }
 #iii {
   transform: scale(0.7);
+  z-index: 99;
   padding-top: 11rem;
   position: absolute;
 }
@@ -58,7 +206,7 @@ body {
   align-items: center;
   height: 2rem;
   width: 100%;
-  background: #333;
+  background: #2e2a2e;
 }
 #headerMenu > grid-item {
   cursor: pointer;
@@ -76,7 +224,7 @@ body {
   width: 100%;
   position: absolute;
   height: 12rem;
-  background: #333;
+  background: #2e2a2e;
   color: white;
 }
 #footerMenu {
@@ -188,6 +336,8 @@ body {
   display: grid;
   align-self: center;
   width: 60%;
+  position: relative;
+  z-index: 99;
   top: -0.1rem;
 }
 #orderCircle {
@@ -234,9 +384,6 @@ body {
   }
   #aboutImage {
     width: 95%;
-  }
-  #orderImage {
-    display: none;
   }
   #thankYou {
     width: 95%;
