@@ -18,7 +18,12 @@ export default function Products(props) {
               id={icecream.id}
               style={{ textAlign: "center", fontWeight: 500 }}
             >
-              <img src={icecream.pic} alt={icecream.name}></img> <br />
+              <img
+                src={icecream.pic}
+                alt={icecream.name}
+                id='productWidth'
+              ></img>{" "}
+              <br />
               {icecream.name}
               <br />
               <span style={{ color: "#aaa" }}>${icecream.price}0</span>

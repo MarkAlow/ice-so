@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import iceCream from "../../img/2x/iceCream2x.png";
-import location from "../../img/2x/location2x.png";
-import market from "../../img/2x/market2x.png";
+import iceCream from "../../img/4x/iceCream.png";
+import location from "../../img/4x/locN.png";
+import market from "../../img/4x/marT.png";
 import { makeStyles, Button } from "@material-ui/core";
 export default function About() {
   const [slides, setSlides] = useState([]);
@@ -48,7 +48,7 @@ export default function About() {
             className={classes.circle}
             variant={id.toString() === "1" ? "outlined" : null}
           >
-            <img alt='' src={iceCream} />
+            <img alt='' src={iceCream} style={{ width: "50%" }} />
           </Button>
         </grid-item>
         <grid-item name='2'>
@@ -57,7 +57,7 @@ export default function About() {
             className={classes.circle}
             variant={id.toString() === "2" ? "outlined" : null}
           >
-            <img alt='' src={location} />
+            <img alt='' src={location} style={{ width: "50%" }} />
           </Button>
         </grid-item>
         <grid-item name='3'>
@@ -66,7 +66,7 @@ export default function About() {
             className={classes.circle}
             variant={id.toString() === "3" ? "outlined" : null}
           >
-            <img alt='' src={market} />
+            <img alt='' src={market} style={{ width: "50%" }} />
           </Button>
         </grid-item>
       </grid-containter>

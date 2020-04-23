@@ -66,10 +66,10 @@ body {
     color: #3b3246;
   }
   50% {
-    color: rgb(203, 250, 127);
+    color: #f56464;
   }
   70% {
-    color: rgb(203, 250, 127);
+    color: #f56464;
   }
   75% {
     color: #8bf2d3;
@@ -96,10 +96,10 @@ body {
     color: #222;
   }
   50% {
-    color: #ebaa6e;
+    color: #414141;
   }
   70% {
-    color: #ebaa6e;
+    color: #414141;
   }
   75% {
     color: #8bf2d3;
@@ -387,5 +387,11 @@ body {
   }
   #thankYou {
     width: 95%;
+  }
+  #productWidth {
+    width: 70%;
+  }
+  #orderImage {
+    display: none;
   }
 }

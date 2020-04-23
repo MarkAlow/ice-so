@@ -13,8 +13,8 @@ import {
   InputLabel,
   Select,
 } from "@material-ui/core";
-import Basket from "../../img/1x/cart.png";
-import Truck from "../../img/1x/truck.png";
+import Basket from "../../img/4x/carT.png";
+import Truck from "../../img/2x/truck2x.png";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -75,8 +75,12 @@ function Main(props) {
           type='button'
           onClick={handleOpen}
         >
-          <img src={Basket} alt='Cart' style={{ marginRight: "1rem" }} /> Cart{" "}
-          <span>&nbsp; ${total}</span>
+          <img
+            src={Basket}
+            alt='Cart'
+            style={{ marginRight: "1rem", width: "15%" }}
+          />
+          Cart <span>&nbsp; ${total}</span>
         </Button>
 
         <Cart
