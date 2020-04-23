@@ -27,8 +27,10 @@ export default function Pay(props) {
         <div id='thankYou'>
           <h3>Your Order has been submitted.</h3>
           <p>
-            We will give you a call at{" "}
-            <span style={{ color: "#f2e477" }}>{formatPhoneNumber(phone)}</span>{" "}
+            We will give you a call at
+            <span style={{ color: "#f2e477" }}>
+              {formatPhoneNumber(phone)}
+            </span>{" "}
             from
           </p>
 
@@ -39,7 +41,6 @@ export default function Pay(props) {
                 display: "inline",
                 position: "relative",
                 top: "-0.3rem",
-                fontWeight: 400,
               }}
             >
               (937) 626 7732
