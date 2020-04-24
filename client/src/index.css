@@ -193,6 +193,9 @@ body {
   padding-top: 11rem;
   position: absolute;
 }
+#productWidth {
+  width: 70%;
+}
 #headerMenu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -224,9 +227,27 @@ body {
   width: 100%;
   position: absolute;
   height: 12rem;
-  background: #2e2a2e;
   color: white;
+  animation: animatedFooter 30s infinite linear;
+  -webkit-animation: animatedFooter 30s infinite linear;
 }
+@keyframes animatedFooter {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+@-webkit-keyframes animatedFooter {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
 #footerMenu {
   padding: 0;
   margin: 0;
@@ -379,6 +400,38 @@ body {
   #iceCreamGrid {
     grid-template-columns: 1fr 1fr;
   }
+  @keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 300% 0;
+    }
+  }
+  @-webkit-keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 300% 0;
+    }
+  }
+  @keyframes animatedFooter {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -300% 0;
+    }
+  }
+  @-webkit-keyframes animatedFooter {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -300% 0;
+    }
+  }
   .aboutDisplay {
     width: 95vw;
   }
@@ -389,9 +442,6 @@ body {
     width: 95%;
   }
   #productWidth {
-    width: 70%;
-  }
-  #orderImage {
-    display: none;
+    width: 80%;
   }
 }

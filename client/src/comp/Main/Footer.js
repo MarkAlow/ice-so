@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
+import BG from "../../img/2x/iceFBg.png";
 const useStyles = makeStyles((theme) => ({
   grid: {
     display: "grid",
@@ -17,7 +18,7 @@ export default function Footer() {
     return d.getFullYear();
   };
   return (
-    <div id='footerW'>
+    <div id='footerW' style={{ backgroundImage: `url(${BG})` }}>
       <span
         className={classes.grid}
         style={{
