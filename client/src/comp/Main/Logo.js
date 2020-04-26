@@ -22,9 +22,7 @@ function Logo() {
               }}
               id='labelBottom'
             >
-              <span id='daytons'>DAYTON'S</span>
-              <br />
-              <span id='best'>BEST</span>
+              <span id='iceso'>ICE.SO</span>
             </div>
             <div
               style={{
@@ -33,17 +31,11 @@ function Logo() {
               }}
               id='labelTop'
             >
-              <span id='daytons'>DAYTON'S</span>
-              <br />
-              <span id='best'>BEST</span>
+              <span id='iceso'>ICE.SO</span>
             </div>
-          </grid-item>
-          <grid-item id='iii'>
-            <img src={ILogo} alt='Order' id='orderImage' />
           </grid-item>
         </grid-container>
       </div>
-      <div id='logoLINE'></div>
     </div>
   );
 }

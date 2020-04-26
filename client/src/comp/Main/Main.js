@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import About from "./About";
 import Footer from "./Footer";
 import Products from "./Products";
 import Cart from "./Cart";
 import Logo from "./Logo";
+import Slider from "./Slider";
 import {
   makeStyles,
   Button,
@@ -94,10 +94,9 @@ function Main(props) {
       <br />
       <div>
         <Logo />
+        <Slider />
       </div>
       <div id='mainFlexWrapper'>
-        <br />
-        <About />
         <br />
         <div id='orderWrapper'>
           <div id='orderLine'>

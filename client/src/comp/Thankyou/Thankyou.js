@@ -4,6 +4,7 @@ import { Button, makeStyles } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import Header from "../Main/Header";
 import Footer from "../Main/Footer";
+import Slider from "../Main/Slider";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -21,14 +22,17 @@ export default function Pay(props) {
   const classes = useStyles();
   return (
     <div>
-      <Header />
+      <br />
+      <br />
+      <br />
+      <Slider />
       <div id='thankYouWrap'>
         <h1>THANK YOU!</h1>
         <div id='thankYou'>
           <h3>Your Order has been submitted.</h3>
           <p>
             We will give you a call at
-            <span style={{ color: "#f2e477" }}>
+            <span style={{ color: "#d4c37b" }}>
               {formatPhoneNumber(phone)}
             </span>{" "}
             from
@@ -58,6 +62,7 @@ export default function Pay(props) {
           </Link>
         </div>
       </div>
+      <Header />
       <Footer />
     </div>
   );
