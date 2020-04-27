@@ -40,25 +40,37 @@ body {
   -webkit-animation: animatedBackground 20s infinite linear;
 }
 @keyframes animatedBackground {
-  from {
+  0% {
     background-position: 0 0;
   }
-  to {
+  2% {
+    background-position: 100% 0;
+  }
+  4% {
+    background-position: 0% 0;
+  }
+  100% {
     background-position: 100% 0;
   }
 }
 @-webkit-keyframes animatedBackground {
-  from {
+  0% {
     background-position: 0 0;
   }
-  to {
+  2% {
+    background-position: 100% 0;
+  }
+  4% {
+    background-position: 0% 0;
+  }
+  100% {
     background-position: 100% 0;
   }
 }
 #labelTop {
   color: #f2d68b;
-  animation: colorchangeTop 10s infinite;
-  -webkit-animation: colorchangeTop 10s infinite; /* Chrome and Safari */
+  animation: colorchangeTop 10s infinite, enter 0.5s 1;
+  -webkit-animation: colorchangeTop 10s infinite, enter 0.5s 1; /* Chrome and Safari */
 }
 
 @keyframes colorchangeTop {
@@ -99,8 +111,8 @@ body {
 
 #labelBottom {
   color: #675f68;
-  animation: colorchangeBottom 10s infinite;
-  -webkit-animation: colorchangeBottom 10s infinite; /* Chrome and Safari */
+  animation: colorchangeBottom 10s infinite, enter 0.5s 1;
+  -webkit-animation: colorchangeBottom 10s infinite, enter 0.5s 1; /* Chrome and Safari */
 }
 
 @keyframes colorchangeBottom {
@@ -319,6 +331,7 @@ body {
   height: 20rem;
   background: #fff;
   animation: op 1s 1;
+  -webkit-animation: op 1s 1;
 }
 #aboutMenuGrid {
   margin: 0 auto;
@@ -382,6 +395,14 @@ body {
     opacity: 1;
   }
 }
+@-webkit-keyframes op {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 #iconButtons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -409,18 +430,30 @@ body {
     grid-template-columns: 1fr 1fr;
   }
   @keyframes animatedBackground {
-    from {
+    0% {
       background-position: 0 0;
     }
-    to {
+    2% {
+      background-position: 300% 0;
+    }
+    4% {
+      background-position: 0% 0;
+    }
+    100% {
       background-position: 300% 0;
     }
   }
   @-webkit-keyframes animatedBackground {
-    from {
+    0% {
       background-position: 0 0;
     }
-    to {
+    2% {
+      background-position: 300% 0;
+    }
+    4% {
+      background-position: 0% 0;
+    }
+    100% {
       background-position: 300% 0;
     }
   }
