@@ -28,6 +28,7 @@ export default function Pay(props) {
       <Slider />
       <div id='thankYouWrap'>
         <h1>THANK YOU!</h1>
+        <br />
         <div id='thankYou'>
           <h3>Your Order has been submitted.</h3>
           <p>
@@ -62,7 +63,11 @@ export default function Pay(props) {
           </Link>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
       <Header />
+
       <Footer />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import iceGrey from "../../img/2x/iceGrey.png";
 import delivery from "../../img/2x/deliveryLabel.png";
 import truck from "../../img/2x/truck.png";
@@ -13,15 +13,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function Logo() {
-  const [id, setId] = useState(1);
-  useEffect(() => {
-    setRandomIds();
-  }, []);
-  const setRandomIds = () => {
-    setInterval(() => {
-      setId(Math.floor(Math.random() * 3) + 1);
-    }, 5500);
-  };
   const classes = useStyles();
   const icons = (
     <grid-containter id='sliderMenuGrid'>
@@ -29,11 +20,9 @@ function Logo() {
         <div className={classes.circle} name='1'></div>
       </grid-item>
       <grid-item name='2'>
-        {" "}
         <div className={classes.circle} name='1'></div>
       </grid-item>
       <grid-item name='3'>
-        {" "}
         <div className={classes.circle} name='1'></div>
       </grid-item>
     </grid-containter>
@@ -41,17 +30,16 @@ function Logo() {
   return (
     <div>
       <div id='sliderBG' style={{ backgroundImage: `url(${iceGrey})` }}>
-        {" "}
         <grid-container id='sliderContainer'>
           <grid-item id='sliderEnterAnim'>
-            <img src={truck} alt='truck' style={{ width: "75%" }}></img>
+            <img src={truck} alt='truck' id='sliderImage'></img>
           </grid-item>
           <grid-item id='sliderEnterAnim' style={{ animationDelay: "0.2s" }}>
-            <img src={delivery} alt='delivery' style={{ width: "75%" }}></img>
+            <img src={delivery} alt='delivery' id='sliderImage'></img>
           </grid-item>
         </grid-container>
         <div
-          class='sliderCircle'
+          className='sliderCircle'
           id='sliderEnterAnim'
           style={{ animationDelay: "0.3s" }}
         ></div>

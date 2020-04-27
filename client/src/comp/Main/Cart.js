@@ -75,7 +75,7 @@ export default function Cart(props) {
                   <TextField
                     defaultValue={item.count}
                     variant='outlined'
-                    onChange={(e) => changeCount(item.count)}
+                    onChange={() => changeCount(item)}
                     size='small'
                   ></TextField>
                 </grid-item>

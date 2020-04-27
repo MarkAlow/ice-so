@@ -41,9 +41,11 @@ function Main(props) {
     handleRemoveFromCart,
     handleSortChange,
     sort,
-    productCount,
-    changeCount,
+    cartCounter,
     total,
+    countr,
+    handleSubtractOneFromCart,
+    handleChangeAmountInCart,
   } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -54,7 +56,9 @@ function Main(props) {
   const handleClose = () => {
     setOpen(false);
   };
-
+  React.useEffect(() => {
+    console.log("used");
+  }, [open]);
   return (
     <div style={{ marginTop: "3rem" }}>
       <div>
@@ -80,14 +84,13 @@ function Main(props) {
             alt='Cart'
             style={{ marginRight: "1rem", width: "15%" }}
           />
-          Cart <span>&nbsp; ${total}</span>
+          <span style={{ fontFamily: "Cubano" }}>Cart &nbsp; ${total}</span>
         </Button>
 
         <Cart
           open={open}
           handleClose={handleClose}
           cartItem={cartItem}
-          changeCount={changeCount}
           handleRemoveFromCart={handleRemoveFromCart}
         />
       </div>
@@ -124,7 +127,11 @@ function Main(props) {
         <Products
           iceCreams={iceCreams}
           handleAddToCart={handleAddToCart}
+          handleSubtractOneFromCart={handleSubtractOneFromCart}
+          handleChangeAmountInCart={handleChangeAmountInCart}
           cartItem={cartItem}
+          cartCounter={cartCounter}
+          countr={countr}
         />
       </div>
       <Header />

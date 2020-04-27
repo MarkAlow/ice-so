@@ -71,20 +71,8 @@ body {
   25% {
     color: #1a1a1a;
   }
-  45% {
-    color: #1a1a1a;
-  }
-  50% {
-    color: #222;
-  }
-  70% {
-    color: #222;
-  }
-  75% {
-    color: rgb(65, 72, 78);
-  }
   95% {
-    color: rgb(65, 72, 78);
+    color: #1a1a1a;
   }
   100% {
     color: #f2d68b;
@@ -99,22 +87,10 @@ body {
     color: #f2d68b;
   }
   25% {
-    color: #222;
-  }
-  45% {
-    color: #222;
-  }
-  50% {
-    color: #414141;
-  }
-  70% {
-    color: #414141;
-  }
-  75% {
-    color: #8bf2d3;
+    color: #1a1a1a;
   }
   95% {
-    color: #8bf2d3;
+    color: #1a1a1a;
   }
   100% {
     color: #f2d68b;
@@ -129,61 +105,61 @@ body {
 
 @keyframes colorchangeBottom {
   0% {
-    color: #675f68;
+    color: #1a1a1a;
   }
   20% {
-    color: #675f68;
+    color: #1a1a1a;
   }
   25% {
-    color: #bb93ae;
+    color: #c895ff;
   }
   45% {
-    color: #bb93ae;
+    color: #c895ff;
   }
   50% {
-    color: #756d5c;
+    color: #cce6ff;
   }
   70% {
-    color: #756d5c;
+    color: #cce6ff;
   }
   75% {
-    color: #537980;
+    color: #c895ff;
   }
   95% {
-    color: #537980;
+    color: #c895ff;
   }
   100% {
-    color: #675f68;
+    color: #1a1a1a;
   }
 }
 
 @-webkit-keyframes colorchangeBottom /* Safari and Chrome - necessary duplicate */ {
   0% {
-    color: #675f68;
+    color: #1a1a1a;
   }
   20% {
-    color: #675f68;
+    color: #1a1a1a;
   }
   25% {
-    color: #bb93ae;
+    color: #c895ff;
   }
   45% {
-    color: #bb93ae;
+    color: #c895ff;
   }
   50% {
-    color: #756d5c;
+    color: #cce6ff;
   }
   70% {
-    color: #756d5c;
+    color: #cce6ff;
   }
   75% {
-    color: #537980;
+    color: #c895ff;
   }
   95% {
-    color: #537980;
+    color: #c895ff;
   }
   100% {
-    color: #675f68;
+    color: #1a1a1a;
   }
 }
 
@@ -197,8 +173,10 @@ body {
   top: -5rem;
   width: 40rem;
   height: 40rem;
-
   background: #1a1a1a;
+}
+#sliderImage {
+  width: 75%;
 }
 #sliderContainer {
   position: absolute;
@@ -320,6 +298,8 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 #iceCreamGrid {
+  margin: 0 auto;
+  width: 70%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat();
@@ -420,6 +400,11 @@ body {
     opacity: 1;
   }
 }
+#iconButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+}
 #thankYouWrap {
   text-align: center;
   margin-top: 5rem;
@@ -428,6 +413,7 @@ body {
   margin: 0 auto;
   width: 25%;
   border-radius: 1rem;
+  padding: 3rem;
   border: 1px solid #ccc;
   font-weight: 300;
 }
@@ -437,6 +423,7 @@ body {
     margin: 0 auto;
   }
   #iceCreamGrid {
+    width: 100%;
     grid-template-columns: 1fr 1fr;
   }
   @keyframes animatedBackground {
@@ -479,6 +466,7 @@ body {
   }
   #thankYou {
     width: 95%;
+    padding: 0rem;
   }
   #productWidth {
     width: 80%;
@@ -495,6 +483,8 @@ body {
   }
   #sliderContainer {
     margin-top: 1.5rem;
-    margin-left: 3rem;
+  }
+  #sliderImage {
+    width: 100%;
   }
 }

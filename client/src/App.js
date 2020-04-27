@@ -70,12 +70,11 @@ function App() {
   // START ICE CREAM CART
   const handleAddToCart = (e, product) => {
     let productAlreadyInCart = false;
-
     cartItem.forEach((item) => {
       if (item.id === product.id) {
         item.count += 1;
         productAlreadyInCart = true;
-        console.log(` ${product.name} count: ${item.count}`);
+        // console.log(` ${product.name} count: ${item.count}`);
       }
     });
 
@@ -86,9 +85,40 @@ function App() {
     cartButtonTotal();
     return { cartItem };
   };
-
+  const handleSubtractOneFromCart = (e, product) => {
+    cartItem.forEach((item) => {
+      if (item.id === product.id) {
+        item.count -= 1;
+        console.log(`Subtracted ${product.name} count: ${item.count}`);
+      }
+      if (item.id === product.id && item.count <= 0) {
+        handleRemoveFromCart(e, product);
+      }
+    });
+    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    cartButtonTotal();
+    return { cartItem };
+  };
+  const handleChangeAmountInCart = (e, product) => {
+    var num = Number(e.target.value);
+    cartItem.forEach((item) => {
+      if (item.id === product.id) {
+        console.log(num);
+        item.count = num;
+        console.log(`Changed ${product.name} count: ${item.count}`);
+      }
+      if (item.id === product.id && item.count <= 0) {
+        handleRemoveFromCart(e, product);
+      }
+      cartButtonTotal();
+      return { cartItem };
+    });
+    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    return { cartItem };
+  };
   const handleRemoveFromCart = (e, product) => {
     setCartItem(cartItem.filter((a) => a.id !== product.id));
+    cartButtonTotal();
     localStorage.setItem("cartItem", JSON.stringify(cartItem));
     return cartItem;
   };
@@ -96,9 +126,7 @@ function App() {
   //PRODUCT CART COUNT
 
   //CHANGE CART PRODUCT COUNT
-  const changeCount = (e, item) => {
-    console.log(item, e.target.value);
-  };
+
   // END ICE CREAM CART
   // SORT ICE CREAMS
   const listProducts = () => {
@@ -163,15 +191,19 @@ function App() {
                 cartItem={cartItem}
                 handleRemoveFromCart={handleRemoveFromCart}
                 handleAddToCart={handleAddToCart}
+                handleSubtractOneFromCart={handleSubtractOneFromCart}
+                handleChangeAmountInCart={handleChangeAmountInCart}
                 handleSortChange={handleSortChange}
                 sort={sort}
-                changeCount={changeCount}
                 total={total}
+                cartButtonTotal={cartButtonTotal}
               />
             </Route>
             <Route path='/ct'>
               <Checkout
+                handleRemoveFromCart={handleRemoveFromCart}
                 handleAddressSuggestions={handleAddressSuggestions}
+                handleChangeAmountInCart={handleChangeAmountInCart}
                 coordinates={coordinates}
                 setPhone={setPhone}
                 setName={setName}
@@ -181,7 +213,6 @@ function App() {
                 setAddress={setAddress}
                 cartItem={cartItem}
                 onSubmit={onSubmit}
-                changeCount={changeCount}
                 formatPhoneNumber={formatPhoneNumber}
               />
             </Route>

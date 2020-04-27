@@ -1,6 +1,5 @@
 import React from "react";
 import ICEBG from "./ICEbg";
-import ILogo from "../../img/2x/iii.png";
 import BG from "../../img/2x/iceBg.png";
 function Logo() {
   return (
