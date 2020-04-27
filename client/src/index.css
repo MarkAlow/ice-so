@@ -215,24 +215,6 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
 }
-#headerMenu {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  z-index: 99;
-  color: white;
-  padding: 1rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
-  width: 100%;
-  background: #2e2a2e;
-}
-#headerMenu > grid-item {
-  cursor: pointer;
-}
 
 #iceso {
   position: relative;

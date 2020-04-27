@@ -203,7 +203,7 @@ export default function PrimarySearchAppBar(props) {
               aria-label='open drawer'
             >
               <SVGLogo />
-            </IconButton>{" "}
+            </IconButton>
           </Link>
           <Typography className={classes.title} variant='h6' noWrap>
             Orders

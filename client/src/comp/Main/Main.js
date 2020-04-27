@@ -59,34 +59,37 @@ function Main(props) {
   React.useEffect(() => {
     console.log("used");
   }, [open]);
+  const cartButton = (
+    <Button
+      style={{
+        background: "#fff",
+        borderRadius: "1rem",
+        position: "fixed",
+        top: 0,
+        zIndex: 1100,
+        right: 0,
+        border: "1px solid #ccc",
+      }}
+      color='primary'
+      className={classes.margin}
+      type='button'
+      onClick={handleOpen}
+    >
+      <img
+        src={Basket}
+        alt='Cart'
+        style={{ marginRight: "1rem", width: "15%" }}
+      />
+      <span style={{ fontFamily: "Cubano" }}>Cart &nbsp; ${total}</span>
+    </Button>
+  );
   return (
     <div style={{ marginTop: "3rem" }}>
       <div>
         <br />
+        <Header />
         {/* Cart */}
-        <Button
-          style={{
-            background: "#fff",
-            borderRadius: "1rem",
-            position: "fixed",
-            top: 0,
-            right: 0,
-            zIndex: 999,
-            border: "1px solid #ccc",
-          }}
-          color='primary'
-          className={classes.margin}
-          type='button'
-          onClick={handleOpen}
-        >
-          <img
-            src={Basket}
-            alt='Cart'
-            style={{ marginRight: "1rem", width: "15%" }}
-          />
-          <span style={{ fontFamily: "Cubano" }}>Cart &nbsp; ${total}</span>
-        </Button>
-
+        {cartButton}
         <Cart
           open={open}
           handleClose={handleClose}
@@ -134,7 +137,6 @@ function Main(props) {
           countr={countr}
         />
       </div>
-      <Header />
       <Footer />
     </div>
   );
