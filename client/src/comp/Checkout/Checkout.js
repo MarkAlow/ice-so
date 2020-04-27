@@ -19,7 +19,6 @@ function Checkout(props) {
     handleAddressSuggestions,
     coordinates,
     onSubmit,
-    changeCount,
     formatPhoneNumber,
     handleRemoveFromCart,
     handleChangeAmountInCart,
@@ -62,7 +61,7 @@ function Checkout(props) {
                 <TextField
                   defaultValue={item.count}
                   variant='outlined'
-                  onChange={changeCount}
+                  onChange={(e) => handleChangeAmountInCart(e, item)}
                   size='small'
                 ></TextField>
               </grid-item>

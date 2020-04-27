@@ -95,6 +95,7 @@ function Main(props) {
           handleClose={handleClose}
           cartItem={cartItem}
           handleRemoveFromCart={handleRemoveFromCart}
+          handleChangeAmountInCart={handleChangeAmountInCart}
         />
       </div>
       <br />

@@ -36,7 +36,7 @@ export default function Cart(props) {
     handleClose,
     cartItem,
     handleRemoveFromCart,
-    changeCount,
+    handleChangeAmountInCart,
   } = props;
 
   return (
@@ -75,7 +75,7 @@ export default function Cart(props) {
                   <TextField
                     defaultValue={item.count}
                     variant='outlined'
-                    onChange={() => changeCount(item)}
+                    onChange={(e) => handleChangeAmountInCart(e, item)}
                     size='small'
                   ></TextField>
                 </grid-item>
