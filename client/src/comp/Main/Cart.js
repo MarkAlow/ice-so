@@ -9,7 +9,6 @@ import {
   TextField,
 } from "@material-ui/core";
 
-import DeleteIcon from "@material-ui/icons/Delete";
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -37,6 +36,7 @@ export default function Cart(props) {
     cartItem,
     handleRemoveFromCart,
     handleChangeAmountInCart,
+    total,
   } = props;
 
   return (
@@ -71,6 +71,7 @@ export default function Cart(props) {
                 <grid-item>
                   <span>{item.name}</span>
                 </grid-item>
+                <grid-item></grid-item>
                 <grid-item>
                   <TextField
                     defaultValue={item.count}
@@ -83,38 +84,41 @@ export default function Cart(props) {
                     size='small'
                   ></TextField>
                 </grid-item>
+                <grid-item></grid-item>
                 <grid-item>
                   <span>${(item.price * item.count).toFixed(2)}</span>
-                </grid-item>
-                <grid-item>
-                  <DeleteIcon
-                    onClick={(e) => handleRemoveFromCart(e, item)}
-                    fontSize='small'
-                  />
                 </grid-item>
               </grid-container>
             ))}
             <div style={{ float: "right" }}>
               <span>Total:</span>
-              <span>
-                $
-                {cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(1)}
-                0
-              </span>
+              <span>${total}</span>
             </div>
             <br /> <br />
-            <Link to='/ct' style={{ textDecoration: "none" }}>
-              {cartItem.length > 0 && (
+            {cartItem.length > 0 ? (
+              total > 15 ? (
+                <Link to='/ct' style={{ textDecoration: "none" }}>
+                  <Button
+                    style={{ background: "#f2d68b", borderRadius: "1rem" }}
+                    color='primary'
+                    className={classes.margin}
+                    type='button'
+                  >
+                    Check Out
+                  </Button>
+                </Link>
+              ) : (
                 <Button
-                  style={{ background: "#f2d68b", borderRadius: "1rem" }}
+                  style={{ background: "#eee", borderRadius: "1rem" }}
                   color='primary'
                   className={classes.margin}
                   type='button'
+                  disabled
                 >
-                  Check Out
+                  Please order $15 or more
                 </Button>
-              )}
-            </Link>
+              )
+            ) : null}
           </div>
         </Fade>
       </Modal>

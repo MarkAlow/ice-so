@@ -69,7 +69,6 @@ export default function Orders(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [orderIds, setOrderIds] = useState([]);
-
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
     setOrderIds(orders.map((order) => order.orderId));
@@ -419,7 +418,9 @@ export default function Orders(props) {
 
                     <br />
                   </div>
-                  <Map lat={order.lat} lng={order.lng} />
+                  {dateDiff(order.date) < 90 ? (
+                    <Map lat={order.lat} lng={order.lng} />
+                  ) : null}
                 </div>
                 <br />
                 <Button

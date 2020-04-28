@@ -5,6 +5,19 @@ import location from "../../img/4x/locN.png";
 import market from "../../img/4x/marT.png";
 import { makeStyles, Button } from "@material-ui/core";
 export default function About() {
+  const icons = (
+    <grid-containter id='sliderMenuGrid'>
+      <grid-item name='1'>
+        <div className={classes.circle} name='1'></div>
+      </grid-item>
+      <grid-item name='2'>
+        <div className={classes.circle} name='1'></div>
+      </grid-item>
+      <grid-item name='3'>
+        <div className={classes.circle} name='1'></div>
+      </grid-item>
+    </grid-containter>
+  );
   const [slides, setSlides] = useState([]);
   const [id, setId] = useState(1);
   useEffect(() => {
