@@ -74,6 +74,10 @@ export default function Cart(props) {
                 <grid-item>
                   <TextField
                     defaultValue={item.count}
+                    type='number'
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
                     variant='outlined'
                     onChange={(e) => handleChangeAmountInCart(e, item)}
                     size='small'
@@ -94,7 +98,8 @@ export default function Cart(props) {
               <span>Total:</span>
               <span>
                 $
-                {cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(2)}
+                {cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(1)}
+                0
               </span>
             </div>
             <br /> <br />

@@ -298,8 +298,40 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat();
   cursor: pointer;
+  margin-bottom: 7rem;
 }
-
+#objs {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: flex-start;
+  align-items: center;
+}
+#objCount {
+  width: 3rem;
+  height: 3rem;
+  font-size: x-large;
+  border-radius: 50%;
+  background: #eee;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+#objInfo {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+#formSort {
+  margin: 0 auto;
+  width: 70%;
+}
 #about {
   margin: 0 auto;
 }
@@ -428,6 +460,9 @@ body {
   #iceCreamGrid {
     width: 100%;
     grid-template-columns: 1fr 1fr;
+  }
+  #formSort {
+    width: 100%;
   }
   @keyframes animatedBackground {
     0% {

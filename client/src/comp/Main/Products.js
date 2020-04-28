@@ -1,8 +1,26 @@
 import React from "react";
-import { IconButton, TextField, Button } from "@material-ui/core";
+import Info from "./Info";
+import {
+  IconButton,
+  makeStyles,
+  TextField,
+  Button,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-
+import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    width: "50%",
+    maxWidth: 160,
+    left: 0,
+  },
+}));
 export default function Products(props) {
   const {
     iceCreams,
@@ -10,7 +28,11 @@ export default function Products(props) {
     cartItem,
     handleSubtractOneFromCart,
     handleChangeAmountInCart,
+    handleSortChange,
+    sort,
   } = props;
+  const [open, setOpen] = React.useState(false);
+  const [src, setSrc] = React.useState("");
   var cartLocal = localStorage.getItem("cartItem");
   const objCount = (id) => {
     var cartObj = cartItem.map((item) => ({
@@ -20,24 +42,68 @@ export default function Products(props) {
     var obj = cartObj
       .filter((a) => a.id === id)
       .map((obj) =>
-        obj.count !== 0 ? <span>{obj.count}</span> : <span>0</span>
+        obj.count >= 0 ? (
+          <span key={obj.id}>{obj.count}</span>
+        ) : (
+          <span key={obj.id}>0</span>
+        )
       );
     return obj;
   };
+  const handleOpen = (pic) => {
+    setSrc(pic);
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const classes = useStyles();
 
   return (
     <div>
-      <p>{localStorage.getItem("cartItem")}</p>
-      <Button onClick={() => console.log(cartLocal)}>LOG</Button>
+      <Info open={open} handleClose={handleClose} src={src} setSrc={setSrc} />
+      <div id='formSort'>
+        <FormControl variant='outlined' className={classes.formControl}>
+          <InputLabel id='demo-simple-select-outlined-label'>
+            Sort By
+          </InputLabel>
+          <Select
+            labelId='demo-simple-select-outlined-label'
+            id='demo-simple-select-outlined'
+            value={sort}
+            onChange={handleSortChange}
+            label='Sort By'
+          >
+            <MenuItem value={"lowestprice"}>Lowest Price</MenuItem>
+            <MenuItem value={"highestprice"}>Highest Price</MenuItem>
+          </Select>
+        </FormControl>
+      </div>
+      {/* <p>{localStorage.getItem("cartItem")}</p> */}
+      {/* <Button onClick={() => console.log(cartLocal)}>LOG</Button> */}
       <grid-container id='iceCreamGrid'>
         {iceCreams.map((item) => (
           <grid-item style={{ padding: "1rem" }} key={item.id}>
             <h4 id={item.id} style={{ textAlign: "center", fontWeight: 500 }}>
-              <img src={item.pic} alt={item.name} id='productWidth'></img>{" "}
+              <grid-container id='objs'>
+                <div id='objCount'>{objCount(item.id)}</div>
+                <div></div>
+                <div id='objInfo' onClick={() => handleOpen(item.pic)}>
+                  <InfoOutlinedIcon color='disabled' />
+                </div>
+              </grid-container>
+
+              <img
+                src={item.pic}
+                onClick={(e) => handleAddToCart(e, item)}
+                alt={item.name}
+                id='productWidth'
+              ></img>
               <br />
               {item.name}
               <br />
-              <span style={{ color: "#aaa" }}>${item.price}0</span>
+              <span style={{ color: "#aaa" }}>${item.price.toFixed(1)}0</span>
             </h4>
             <div id='iconButtons'>
               <grid-item>
@@ -51,9 +117,12 @@ export default function Products(props) {
 
               <grid-item style={{ justifySelf: "center" }}>
                 <TextField
+                  type='number'
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   variant='outlined'
                   onChange={(e) => handleChangeAmountInCart(e, item)}
-                  size='small'
                 ></TextField>
               </grid-item>
 

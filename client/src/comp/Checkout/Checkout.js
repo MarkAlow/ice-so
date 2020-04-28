@@ -60,6 +60,10 @@ function Checkout(props) {
               <grid-item>
                 <TextField
                   defaultValue={item.count}
+                  type='number'
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   variant='outlined'
                   onChange={(e) => handleChangeAmountInCart(e, item)}
                   size='small'
@@ -80,7 +84,7 @@ function Checkout(props) {
         <br />
         <span style={{ position: "relative", margin: "0 auto" }}>
           <p>Total:</p>$
-          {cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(2)}
+          {cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(1)}0
         </span>
         <br />
         <div style={{ margin: "0 auto", textAlign: "center" }}>

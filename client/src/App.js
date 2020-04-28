@@ -89,7 +89,6 @@ function App() {
     cartItem.forEach((item) => {
       if (item.id === product.id) {
         item.count -= 1;
-        console.log(`Subtracted ${product.name} count: ${item.count}`);
       }
       if (item.id === product.id && item.count <= 0) {
         handleRemoveFromCart(e, product);
@@ -100,12 +99,14 @@ function App() {
     return { cartItem };
   };
   const handleChangeAmountInCart = (e, product) => {
+    handleAddToCart(e, product);
     var num = Number(e.target.value);
+    if (Number(e.target.value) < 0) {
+      num = 0;
+    }
     cartItem.forEach((item) => {
       if (item.id === product.id) {
-        console.log(num);
         item.count = num;
-        console.log(`Changed ${product.name} count: ${item.count}`);
       }
       if (item.id === product.id && item.count <= 0) {
         handleRemoveFromCart(e, product);
@@ -120,12 +121,16 @@ function App() {
     setCartItem(cartItem.filter((a) => a.id !== product.id));
     cartButtonTotal();
     localStorage.setItem("cartItem", JSON.stringify(cartItem));
-    return cartItem;
+    return { cartItem };
   };
 
-  //PRODUCT CART COUNT
-
-  //CHANGE CART PRODUCT COUNT
+  const [total, setTotal] = useState(0.0);
+  const cartButtonTotal = () => {
+    const total = cartItem
+      .reduce((a, c) => a + c.price * c.count, 0)
+      .toFixed(2);
+    setTotal(total);
+  };
 
   // END ICE CREAM CART
   // SORT ICE CREAMS
@@ -152,13 +157,6 @@ function App() {
     axios.get(`ice.json`).then((res) => {
       setIceCreams(res.data);
     });
-  };
-  const [total, setTotal] = useState(0.0);
-  const cartButtonTotal = () => {
-    const total = cartItem
-      .reduce((a, c) => a + c.price * c.count, 0)
-      .toFixed(2);
-    setTotal(total);
   };
 
   // FORMAT PHONE NUMBER

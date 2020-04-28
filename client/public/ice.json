@@ -1,100 +1,178 @@
 [
   {
     "id": 1,
-    "name": "Batman",
-    "price": 3.5,
-    "description": "This ice cream is made out of cookies and milk to provide you with an amazing taste!",
-    "pic": "iceimg/batmanIce.png"
+    "name": "Big Dipper",
+    "price": 2.94,
+    "description": "Vanilla Cone",
+    "pic": "iceimg/dipperICE.png",
+    "available": true
   },
   {
     "id": 2,
     "name": "Birthday Cake",
-    "price": 2.2,
+    "price": 1.904,
     "description": "This ice cream is made out of fruit ice!",
-    "pic": "iceimg/birthdayIce.png"
+    "pic": "iceimg/birthdayIce.png",
+    "available": true
   },
   {
     "id": 3,
-    "name": "Bugs Bunny",
-    "price": 4.1,
-    "description": "This ice cream is fat-free and delicious!",
-    "pic": "iceimg/bugsIce.png"
+    "name": "Chips Galore",
+    "price": 3.501,
+    "description": "A lot of chips",
+    "pic": "iceimg/chipsICE.png",
+    "available": true
   },
   {
     "id": 4,
-    "name": "Minions",
-    "price": 2.8,
-    "description": "So many Bananas! Try it out today!",
-    "pic": "iceimg/minionsIce.png"
+    "name": "Orange Cream",
+    "price": 1.905,
+    "description": "",
+    "pic": "iceimg/orangeIce.png",
+    "available": true
   },
   {
     "id": 5,
     "name": "Sour Wower",
-    "price": 1.9,
+    "price": 1.906,
     "description": "This ice cream is really good and has a lot of sugar in it!",
-    "pic": "iceimg/sourIce.png"
+    "pic": "iceimg/sourIce.png",
+    "available": true
   },
   {
     "id": 6,
     "name": "Turtle Bunny",
     "price": 3.6,
     "description": "",
-    "pic": "iceimg/turtleIce.png"
+    "pic": "iceimg/turtleIce.png",
+    "available": true
   },
   {
     "id": 7,
     "name": "Simply Vanilla",
-    "price": 1.9,
+    "price": 1.901,
     "description": "",
-    "pic": "iceimg/simplyVanillaICE.png"
+    "pic": "iceimg/simplyVanillaICE.png",
+    "available": true
   },
   {
     "id": 8,
     "name": "BIG Vanilla",
     "price": 2.9,
     "description": "",
-    "pic": "iceimg/bigVanillaICE.png"
+    "pic": "iceimg/bigVanillaICE.png",
+    "available": true
   },
   {
     "id": 9,
     "name": "Cookies & Cream",
-    "price": 2.9,
+    "price": 2.901,
     "description": "",
-    "pic": "iceimg/cookiesIce.png"
+    "pic": "iceimg/cookiesIce.png",
+    "available": true
   },
   {
     "id": 10,
     "name": "Strawberry Shortcake",
-    "price": 1.9,
+    "price": 1.902,
     "description": "",
-    "pic": "iceimg/strawberryIce.png"
+    "pic": "iceimg/strawberryIce.png",
+    "available": true
   },
   {
     "id": 11,
     "name": "Hot Fudge",
-    "price": 2.9,
+    "price": 1.907,
     "description": "",
-    "pic": "iceimg/fudgeICE.png"
+    "pic": "iceimg/fudgeICE.png",
+    "available": true
   },
   {
     "id": 12,
     "name": "Choco Taco",
-    "price": 4.1,
+    "price": 4.102,
     "description": "",
-    "pic": "iceimg/tacoICE.png"
+    "pic": "iceimg/tacoICE.png",
+    "available": true
   },
   {
     "id": 13,
     "name": "Jolly Rancher",
-    "price": 3.2,
+    "price": 3.201,
     "description": "",
-    "pic": "iceimg/jollyICE.png"
+    "pic": "iceimg/jollyICE.png",
+    "available": true
   },
   {
     "id": 14,
     "name": "Cotton Candy",
-    "price": 2.6,
+    "price": 1.908,
     "description": "",
-    "pic": "iceimg/cottonICE.png"
+    "pic": "iceimg/cottonICE.png",
+    "available": true
+  },
+  {
+    "id": 15,
+    "name": "Bubble Gum",
+    "price": 1.92,
+    "description": "",
+    "pic": "iceimg/bubbleICE.png",
+    "available": true
+  },
+  {
+    "id": 16,
+    "name": "Watermelon Bomb Pop",
+    "price": 2.908,
+    "description": "",
+    "pic": "iceimg/watermelonBPICE.png",
+    "available": true
+  },
+  {
+    "id": 17,
+    "name": "Banana Fudge Bomb Pop",
+    "price": 2.902,
+    "description": "",
+    "pic": "iceimg/bananaBPICE.png",
+    "available": true
+  },
+  {
+    "id": 18,
+    "name": "Warhead Bomb Pop",
+    "price": 2.903,
+    "description": "",
+    "pic": "iceimg/warheadBPICE.png",
+    "available": true
+  },
+  {
+    "id": 19,
+    "name": "Rocket Bomb Pop",
+    "price": 2.904,
+    "description": "",
+    "pic": "iceimg/rocketBPICE.png",
+    "available": true
+  },
+  {
+    "id": 20,
+    "name": "Bomb Pop Junior",
+    "price": 1.404,
+    "description": "",
+    "pic": "iceimg/jrBPICE.png",
+    "available": true
+  },
+  {
+    "id": 21,
+    "name": "Banana Fudge Bomb Pop Jr",
+    "price": 1.405,
+    "description": "",
+    "pic": "iceimg/jrbananaBPICE.png",
+    "available": true
+  },
+  {
+    "id": 22,
+    "name": "Jolly Rancher Bomb Pop",
+    "price": 2.909,
+    "description": "",
+    "pic": "iceimg/jollyBPICE.png",
+    "available": true
   }
 ]

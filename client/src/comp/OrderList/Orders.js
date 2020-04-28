@@ -179,8 +179,8 @@ export default function Orders(props) {
       {/*  */}
       {/* Delete Order Modal */}
       <Modal
-        aria-labelledby='Cart'
-        aria-describedby='Your Order:'
+        aria-labelledby='Del.ete'
+        aria-describedby='Delete Order'
         className={classes.modal}
         open={processingModal}
         closeAfterTransition
@@ -198,8 +198,8 @@ export default function Orders(props) {
       {/*  */}
       {/* REPORTING MODAL */}
       <Modal
-        aria-labelledby='Cart'
-        aria-describedby='Your Order:'
+        aria-labelledby='Report'
+        aria-describedby='Report Order'
         className={classes.modal}
         open={reportOpen}
         onClose={() => {

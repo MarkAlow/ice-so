@@ -5,14 +5,7 @@ import Products from "./Products";
 import Cart from "./Cart";
 import Logo from "./Logo";
 import Slider from "./Slider";
-import {
-  makeStyles,
-  Button,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Select,
-} from "@material-ui/core";
+import { makeStyles, Button } from "@material-ui/core";
 import Basket from "../../img/4x/carT.png";
 import Truck from "../../img/2x/truck2x.png";
 
@@ -49,6 +42,7 @@ function Main(props) {
   } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+
   // MODAL FUNCTIONS
   const handleOpen = () => {
     setOpen(true);
@@ -56,9 +50,11 @@ function Main(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  React.useEffect(() => {
-    console.log("used");
-  }, [open]);
+
+  // !! Fix the cart total ondelete
+  // React.useEffect(() => {
+  //   console.log("used");
+  // }, [open]);
   const cartButton = (
     <Button
       style={{
@@ -113,21 +109,6 @@ function Main(props) {
           </div>
         </div>
         <br />
-        <FormControl variant='outlined' className={classes.formControl}>
-          <InputLabel id='demo-simple-select-outlined-label'>
-            Sort By
-          </InputLabel>
-          <Select
-            labelId='demo-simple-select-outlined-label'
-            id='demo-simple-select-outlined'
-            value={sort}
-            onChange={handleSortChange}
-            label='Sort By'
-          >
-            <MenuItem value={"lowestprice"}>Lowest Price</MenuItem>
-            <MenuItem value={"highestprice"}>Highest Price</MenuItem>
-          </Select>
-        </FormControl>
         <Products
           iceCreams={iceCreams}
           handleAddToCart={handleAddToCart}
@@ -136,6 +117,8 @@ function Main(props) {
           cartItem={cartItem}
           cartCounter={cartCounter}
           countr={countr}
+          sort={sort}
+          handleSortChange={handleSortChange}
         />
       </div>
       <Footer />
