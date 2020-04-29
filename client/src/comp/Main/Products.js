@@ -33,6 +33,7 @@ export default function Products(props) {
   } = props;
   const [open, setOpen] = React.useState(false);
   const [src, setSrc] = React.useState("");
+  const [scale, setScale] = React.useState("scale(1)");
   var cartLocal = localStorage.getItem("cartItem");
   const objCount = (id) => {
     var cartObj = cartItem.map((item) => ({
@@ -99,6 +100,9 @@ export default function Products(props) {
                 onClick={(e) => handleAddToCart(e, item)}
                 alt={item.name}
                 id='productWidth'
+                onMouseDown={() => setScale("scale(0.9)")}
+                onMouseUp={() => setScale("scale(1)")}
+                style={{ transform: scale }}
               ></img>
               <br />
               {item.name}
