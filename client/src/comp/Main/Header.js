@@ -5,6 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import SVG from "./SVGMainLogo";
 import { IconButton } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import Menu from "./Menu";
 function ElevationScroll(props) {
   const { children } = props;
 
@@ -28,6 +29,7 @@ export default function ElevateAppBar(props) {
                 <SVG style={{ cursor: "pointer" }} />
               </IconButton>
             </Link>
+            <Menu />
           </Toolbar>
         </AppBar>
       </ElevationScroll>

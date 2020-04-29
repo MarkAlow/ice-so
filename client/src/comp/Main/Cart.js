@@ -96,7 +96,7 @@ export default function Cart(props) {
             </div>
             <br /> <br />
             {cartItem.length > 0 ? (
-              total > 15 ? (
+              total > 1 ? (
                 <Link to='/ct' style={{ textDecoration: "none" }}>
                   <Button
                     style={{ background: "#f2d68b", borderRadius: "1rem" }}

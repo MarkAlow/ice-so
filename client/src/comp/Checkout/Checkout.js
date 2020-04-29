@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../Main/Header";
-import SimpleMap from "../OrderList/Map";
-import { Button, TextField } from "@material-ui/core";
+import Map from "../OrderList/Map";
+import { Button, TextField, TableSortLabel } from "@material-ui/core";
 import Truck from "../../img/1x/truck.png";
 import PlacesAutoComplete from "react-places-autocomplete";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -23,6 +23,10 @@ function Checkout(props) {
     handleRemoveFromCart,
     handleChangeAmountInCart,
   } = props;
+  const totals = (cartItem) => {
+    var total = cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(1);
+    return total;
+  };
   return (
     <div>
       {/* {cartItem.length > 0 ? ( */}
@@ -83,66 +87,61 @@ function Checkout(props) {
         </div>
         <br />
         <span style={{ position: "relative", margin: "0 auto" }}>
-          <p>Total:</p>$
-          {cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(1)}0
+          <p>Total:</p>${totals(cartItem)}0
         </span>
         <br />
-        <div style={{ margin: "0 auto", textAlign: "center" }}>
-          <TextField
-            variant='outlined'
-            value={name}
-            label='Your Name'
-            onChange={(e) => setName(e.target.value)}
-          ></TextField>
-          <br />
-          <br />
-          <TextField
-            variant='outlined'
-            value={formatPhoneNumber(phone)}
-            label='Your Phone'
-            onChange={(e) => setPhone(e.target.value)}
-          ></TextField>{" "}
-          <br />
-          <br />
-          <PlacesAutoComplete
-            value={address}
-            onChange={setAddress}
-            onSelect={handleAddressSuggestions}
-          >
-            {({
-              getInputProps,
-              suggestions,
-              getSuggestionItemProps,
-              loading,
-            }) => (
-              <div>
-                <TextField
-                  variant='outlined'
-                  label='Your Address'
-                  onChange={(e) => setAddress(e.target.value)}
-                  {...getInputProps({})}
-                />
-                <div>
-                  {loading ? <div>...loading</div> : null}
-                  {suggestions.map((suggestion) => {
-                    const style = {
-                      backgroundColor: suggestion.active
-                        ? "#39BAE8"
-                        : "#f2f4f6",
-                    };
-                    return (
-                      <div {...getSuggestionItemProps(suggestion, { style })}>
-                        {suggestion.description}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-          </PlacesAutoComplete>
-        </div>
+        <TextField
+          variant='outlined'
+          value={name}
+          label='Your Name'
+          onChange={(e) => setName(e.target.value)}
+        ></TextField>
         <br />
-        <SimpleMap
+        <br />
+        <TextField
+          variant='outlined'
+          value={formatPhoneNumber(phone)}
+          label='Your Phone'
+          onChange={(e) => setPhone(e.target.value)}
+        ></TextField>{" "}
+        <br />
+        <br />
+        <PlacesAutoComplete
+          value={address}
+          onChange={setAddress}
+          onSelect={handleAddressSuggestions}
+        >
+          {({
+            getInputProps,
+            suggestions,
+            getSuggestionItemProps,
+            loading,
+          }) => (
+            <div>
+              <TextField
+                variant='outlined'
+                label='Your Address'
+                onChange={(e) => setAddress(e.target.value)}
+                {...getInputProps({})}
+              />
+              <div>
+                {loading ? <div>...loading</div> : null}
+                {suggestions.map((suggestion) => {
+                  const style = {
+                    backgroundColor: suggestion.active ? "#39BAE8" : "#f2f4f6",
+                  };
+                  return (
+                    <div {...getSuggestionItemProps(suggestion, { style })}>
+                      {suggestion.description}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutoComplete>
+        <br />
+        <Map
           lat={coordinates.lat ? Number(coordinates.lat) : 39.764334}
           lng={coordinates.lng ? Number(coordinates.lng) : -84.190472}
         />
@@ -172,7 +171,7 @@ function Checkout(props) {
             style={{
               border: "1px #ccc solid",
               padding: "1rem",
-              width: "50%",
+              width: "70%",
               margin: "0 auto",
               textAlign: "center",
             }}

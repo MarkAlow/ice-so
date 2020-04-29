@@ -289,7 +289,7 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 #iceCreamGrid {
   margin: 0 auto;
@@ -312,7 +312,7 @@ body {
   height: 3rem;
   font-size: x-large;
   border-radius: 50%;
-  background: #eee;
+  border: 1px solid #ccc;
   position: relative;
   display: grid;
   justify-content: center;
@@ -439,6 +439,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
+}
+#checkOutFields {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
 }
 #thankYouWrap {
   text-align: center;
