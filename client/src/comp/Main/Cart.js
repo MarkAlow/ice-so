@@ -34,7 +34,6 @@ export default function Cart(props) {
     open,
     handleClose,
     cartItem,
-    handleRemoveFromCart,
     handleChangeAmountInCart,
     total,
   } = props;

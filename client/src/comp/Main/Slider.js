@@ -1,20 +1,10 @@
 import React from "react";
 import iceGrey from "../../img/2x/iceGrey.png";
 import delivery from "../../img/2x/deliveryLabel.png";
+import business from "../../img/2x/busInq.png";
 import truck from "../../img/2x/truck.png";
-import { makeStyles } from "@material-ui/core";
-const useStyles = makeStyles((theme) => ({
-  circle: {
-    borderRadius: "50%",
-    background: "#333",
-    width: "1rem",
-    height: "1rem",
-    cursor: "pointer",
-  },
-}));
-function Logo() {
-  const classes = useStyles();
 
+function Logo() {
   return (
     <div>
       <div id='sliderBG' style={{ backgroundImage: `url(${iceGrey})` }}>
@@ -29,7 +19,9 @@ function Logo() {
           </grid-item>
           <grid-item style={{ animationDelay: "0.2s" }}>
             <img
-              src={delivery}
+              src={
+                window.location.href.includes("business") ? business : delivery
+              }
               alt='delivery'
               id='sliderEnterAnim'
               className='sliderImage'

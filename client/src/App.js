@@ -6,6 +6,7 @@ import Checkout from "./comp/Checkout/Checkout";
 import Thankyou from "./comp/Thankyou/Thankyou";
 import Payment from "./comp/Payment/Payment";
 import Orders from "./comp/OrderList/Orders";
+import Business from "./comp/Main/Business";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -14,6 +15,8 @@ function App() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
   const [sort, setSort] = useState("");
 
@@ -61,6 +64,26 @@ function App() {
       : (base = "http://localhost:5000/");
     axios
       .post(base + "api/customer", customer)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log("Error! - " + err));
+  };
+
+  // SUBMITTING THE BUSINESS INFORMATION
+  const onBusiness = () => {
+    const business = {
+      requestId: makeId(4),
+      name: name,
+      phone: phone,
+      email: email,
+      message: message,
+    };
+    console.log(business);
+    let base;
+    window.location.hostname !== "localhost"
+      ? (base = "/")
+      : (base = "http://localhost:5000/");
+    axios
+      .post(base + "api/business", business)
       .then((res) => console.log(res.data))
       .catch((err) => console.log("Error! - " + err));
   };
@@ -205,10 +228,10 @@ function App() {
                 coordinates={coordinates}
                 setPhone={setPhone}
                 setName={setName}
-                address={address}
+                setAddress={setAddress}
                 name={name}
                 phone={phone}
-                setAddress={setAddress}
+                address={address}
                 cartItem={cartItem}
                 onSubmit={onSubmit}
                 formatPhoneNumber={formatPhoneNumber}
@@ -225,8 +248,22 @@ function App() {
             <Route path='/tu'>
               <Thankyou phone={phone} formatPhoneNumber={formatPhoneNumber} />
             </Route>
-            <Route parth='/orders'>
+            <Route path='/orders'>
               <Orders formatPhoneNumber={formatPhoneNumber} />
+            </Route>
+            <Route path='/business'>
+              <Business
+                setMessage={setMessage}
+                setPhone={setPhone}
+                setName={setName}
+                setEmail={setEmail}
+                name={name}
+                phone={phone}
+                email={email}
+                message={message}
+                formatPhoneNumber={formatPhoneNumber}
+                onBusiness={onBusiness}
+              />
             </Route>
           </Switch>
         </div>

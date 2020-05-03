@@ -2,12 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../Main/Header";
 import Map from "../OrderList/Map";
-import { Button, TextField, TableSortLabel } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import Truck from "../../img/1x/truck.png";
 import PlacesAutoComplete from "react-places-autocomplete";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 function Checkout(props) {
+  const [coupon, setCoupon] = React.useState(false);
+  const applyCoupon = (e) => {
+    var coupons = ["COUPON", "DISCOUNT"];
+    const input = (input) => input === e.target.value;
+    var coup = coupons.some(input);
+    setCoupon(coup);
+  };
   const {
     cartItem,
     name,
@@ -24,7 +31,11 @@ function Checkout(props) {
     handleChangeAmountInCart,
   } = props;
   const totals = (cartItem) => {
-    var total = cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(1);
+    var total;
+    !coupon
+      ? (total = cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(1))
+      : (total =
+          cartItem.reduce((a, c) => a + c.price * c.count, 0).toFixed(1) * 0.8);
     return total;
   };
   return (
@@ -85,17 +96,28 @@ function Checkout(props) {
             </grid-container>
           ))}
         </div>
-        <br />
-        <span style={{ position: "relative", margin: "0 auto" }}>
-          <p>Total:</p>${totals(cartItem)}0
-        </span>
+        <br /> <p>Total:</p>
+        <grid-container id='couponTotal'>
+          <span
+            style={{ position: "relative", margin: "0 auto", fontSize: "2rem" }}
+          >
+            ${totals(cartItem)}
+          </span>
+          <grid-item />
+          <TextField
+            style={{ borderColor: "green" }}
+            variant='outlined'
+            label={!coupon ? "Apply Coupon" : "Coupon Applied!"}
+            onChange={applyCoupon}
+          />
+        </grid-container>
         <br />
         <TextField
           variant='outlined'
           value={name}
           label='Your Name'
           onChange={(e) => setName(e.target.value)}
-        ></TextField>
+        />
         <br />
         <br />
         <TextField
@@ -103,7 +125,7 @@ function Checkout(props) {
           value={formatPhoneNumber(phone)}
           label='Your Phone'
           onChange={(e) => setPhone(e.target.value)}
-        ></TextField>{" "}
+        />
         <br />
         <br />
         <PlacesAutoComplete
@@ -188,7 +210,6 @@ function Checkout(props) {
       //     <Link to='/' exact style={{ textDecoration: "none" }}>
       //       <Button */}
       {/*        label='Submit'
-             onClick={onSubmit}
               style={{ border: "1px #ccc solid", padding: "1rem" }}
             >
              BACK TO MAIN */}

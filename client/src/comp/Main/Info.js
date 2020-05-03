@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Button, Backdrop, Modal, Fade } from "@material-ui/core";
+import { makeStyles, Backdrop, Modal, Fade } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   modal: {

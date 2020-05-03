@@ -2,7 +2,6 @@ import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
@@ -11,6 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import PinDropIcon from "@material-ui/icons/PinDrop";
 import MenuIcon from "@material-ui/icons/Menu";
 import RoomServiceIcon from "@material-ui/icons/RoomService";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -47,18 +47,22 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem button key='Make an Order'>
-          <ListItemIcon>
-            <PinDropIcon />
-          </ListItemIcon>
-          <ListItemText primary='Make an Order' />
-        </ListItem>
-        <ListItem button key='Business Inquiries'>
-          <ListItemIcon>
-            <RoomServiceIcon />
-          </ListItemIcon>
-          <ListItemText primary='Business Inquiries' />
-        </ListItem>
+        <Link to='/orders' style={{ textDecoration: "none", color: "#555" }}>
+          <ListItem button key='Make an Order'>
+            <ListItemIcon>
+              <PinDropIcon />
+            </ListItemIcon>
+            <ListItemText primary='Make an Order' />
+          </ListItem>
+        </Link>
+        <Link to='/business' style={{ textDecoration: "none", color: "#555" }}>
+          <ListItem button key='Business Inquiries'>
+            <ListItemIcon>
+              <RoomServiceIcon />
+            </ListItemIcon>
+            <ListItemText primary='Business Inquiries' />
+          </ListItem>
+        </Link>
       </List>
       <Divider />
     </div>

@@ -24,7 +24,7 @@ export default function ElevateAppBar(props) {
       <ElevationScroll {...props}>
         <AppBar style={{ background: "#2e2a2e" }}>
           <Toolbar>
-            <Link to='/orders'>
+            <Link to='/' exact>
               <IconButton edge='start' aria-label='open drawer'>
                 <SVG style={{ cursor: "pointer" }} />
               </IconButton>

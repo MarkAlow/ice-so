@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Products from "./Products";
 import Cart from "./Cart";
 import Logo from "./Logo";
+
 import Slider from "./Slider";
 import { makeStyles, Button } from "@material-ui/core";
 import Basket from "../../img/4x/carT.png";

@@ -4,8 +4,8 @@ import {
   IconButton,
   makeStyles,
   TextField,
-  Button,
   MenuItem,
+  Button,
   FormControl,
   InputLabel,
   Select,
@@ -34,9 +34,9 @@ export default function Products(props) {
   const [open, setOpen] = React.useState(false);
   const [src, setSrc] = React.useState("");
   const [scale, setScale] = React.useState("scale(1)");
-  var cartLocal = localStorage.getItem("cartItem");
+  var cartLocal = JSON.parse(localStorage.getItem("cartItem"));
   const objCount = (id) => {
-    var cartObj = cartItem.map((item) => ({
+    var cartObj = cartLocal.map((item) => ({
       id: item.id,
       count: item.count,
     }));
@@ -81,8 +81,7 @@ export default function Products(props) {
           </Select>
         </FormControl>
       </div>
-      {/* <p>{localStorage.getItem("cartItem")}</p> */}
-      {/* <Button onClick={() => console.log(cartLocal)}>LOG</Button> */}
+      <Button onClick={() => console.log(cartLocal)}>LOG</Button>
       <grid-container id='iceCreamGrid'>
         {iceCreams.map((item) => (
           <grid-item style={{ padding: "1rem" }} key={item.id}>

@@ -75,6 +75,14 @@ export default function Orders(props) {
   };
 
   useEffect(() => {
+    const getOrders = () => {
+      axios
+        .get(base + "api/customer")
+        .then((res) => setOrders(res.data))
+        .catch((err) => {
+          console.log(`Error! : ${err}`);
+        });
+    };
     getOrders();
     setInterval(getOrders, 250);
     setInterval(() => tick(), 1000);
@@ -94,14 +102,6 @@ export default function Orders(props) {
   window.location.hostname !== "localhost"
     ? (base = "/")
     : (base = "http://localhost:5000/");
-  const getOrders = () => {
-    axios
-      .get(base + "api/customer")
-      .then((res) => setOrders(res.data))
-      .catch((err) => {
-        console.log(`Error! : ${err}`);
-      });
-  };
 
   const closeOrder = (id, closed, wrongAddress, noPayment, otherReport) => {
     axios

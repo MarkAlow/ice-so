@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const customer = require("./routes/api/customer");
+const business = require("./routes/api/business");
 
 const cors = require("cors");
 const app = express();
@@ -18,6 +19,7 @@ mongoose
 
 //Use Routes
 app.use("/api/customer/", customer);
+app.use("/api/business/", business);
 
 //Serve the static assets if in production
 if (process.env.NODE_ENV === "production") {
