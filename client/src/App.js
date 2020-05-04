@@ -168,8 +168,6 @@ function App() {
           ? 1
           : -1
       );
-    } else {
-      iceCreams.sort((a, b) => (a.id > b.id ? 1 : -1));
     }
   };
   const handleSortChange = (e) => {
