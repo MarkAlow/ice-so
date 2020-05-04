@@ -81,7 +81,7 @@ export default function Products(props) {
           </Select>
         </FormControl>
       </div>
-      <grid-container id='iceCreamGrid'>
+      {/* <grid-container id='iceCreamGrid'>
         {iceCreams.map((item) => (
           <grid-item style={{ padding: "1rem" }} key={item.id}>
             <h4 id={item.id} style={{ textAlign: "center", fontWeight: 500 }}>
@@ -139,7 +139,7 @@ export default function Products(props) {
             </div>
           </grid-item>
         ))}
-      </grid-container>
+      </grid-container> */}
     </div>
   );
 }
