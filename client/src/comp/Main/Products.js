@@ -83,7 +83,7 @@ export default function Products(props) {
       </div>
       <Button onClick={() => console.log(typeof iceCreams)}>LOG</Button>
       <grid-container id='iceCreamGrid'>
-        {/* {iceCreams.map((item) => (
+        {iceCreams.map((item) => (
           <grid-item style={{ padding: "1rem" }} key={item.id}>
             <h4 id={item.id} style={{ textAlign: "center", fontWeight: 500 }}>
               <grid-container id='objs'>
@@ -139,7 +139,7 @@ export default function Products(props) {
               </grid-item>
             </div>
           </grid-item>
-        ))} */}
+        ))}
       </grid-container>
     </div>
   );
