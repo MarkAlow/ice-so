@@ -117,7 +117,18 @@ export default function Cart(props) {
                   Please order $15 or more
                 </Button>
               )
-            ) : null}
+            ) : (
+              <Link to='/ct' style={{ textDecoration: "none" }}>
+                <Button
+                  style={{ background: "#f2d68b", borderRadius: "1rem" }}
+                  color='primary'
+                  className={classes.margin}
+                  type='button'
+                >
+                  Check Out
+                </Button>
+              </Link>
+            )}
           </div>
         </Fade>
       </Modal>
