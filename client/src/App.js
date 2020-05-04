@@ -174,7 +174,7 @@ function App() {
   };
   const handleSortChange = (e) => {
     setSort(e.target.value);
-    // listProducts();
+    listProducts();
   };
   const getIceCreams = () => {
     axios.get(`ice.json`).then((res) => {
@@ -199,7 +199,7 @@ function App() {
 
   useEffect(() => {
     getIceCreams();
-  }, []);
+  }, [listProducts()]);
 
   return (
     <Provider store={store}>
