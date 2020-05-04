@@ -57,7 +57,7 @@ export default function Pay(props) {
           <TextField
             variant='outlined'
             label='Your or Company Name'
-            name={name}
+            value={name}
             onChange={(e) => setName(e.target.value)}
           ></TextField>
           <br /> <br />
@@ -72,7 +72,7 @@ export default function Pay(props) {
           <TextField
             variant='outlined'
             label='Your or Company Email'
-            email={email}
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></TextField>
           <br /> <br />
@@ -80,7 +80,7 @@ export default function Pay(props) {
             variant='outlined'
             label='Message'
             multiline
-            message={message}
+            value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows={4}
           ></TextField>
