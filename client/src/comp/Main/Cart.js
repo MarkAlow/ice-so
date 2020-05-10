@@ -56,9 +56,7 @@ export default function Cart(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id='transition-modal-title'>
-              {cartLocal.length > 0 ? "Your Order" : "Cart is empty"}
-            </h2>
+            <h2 id='transition-modal-title'></h2>
             {cartLocal.map((item) => (
               <grid-container key={item.id} id='cartItem'>
                 <grid-item>
