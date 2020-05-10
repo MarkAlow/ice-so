@@ -30,11 +30,12 @@ export default function Products(props) {
     handleChangeAmountInCart,
     handleSortChange,
     sort,
+    cartLocal,
   } = props;
   const [open, setOpen] = React.useState(false);
   const [src, setSrc] = React.useState("");
   const [scale, setScale] = React.useState("scale(1)");
-  var cartLocal = JSON.parse(localStorage.getItem("cartItem"));
+
   const objCount = (id) => {
     var cartObj = cartLocal.map((item) => ({
       id: item.id,
@@ -42,13 +43,7 @@ export default function Products(props) {
     }));
     var obj = cartObj
       .filter((a) => a.id === id)
-      .map((obj) =>
-        obj.count >= 0 ? (
-          <span key={obj.id}>{obj.count}</span>
-        ) : (
-          <span key={obj.id}>0</span>
-        )
-      );
+      .map((obj) => obj.count >= 0 && <span key={obj.id}>{obj.count}</span>);
     return obj;
   };
   const handleOpen = (pic) => {
@@ -81,7 +76,7 @@ export default function Products(props) {
           </Select>
         </FormControl>
       </div>
-      <Button onClick={() => console.log(typeof iceCreams)}>LOG</Button>
+      {/* <Button onClick={() => console.log(typeof iceCreams)}>LOG</Button> */}
       <grid-container id='iceCreamGrid'>
         {iceCreams.map((item) => (
           <grid-item style={{ padding: "1rem" }} key={item.id}>

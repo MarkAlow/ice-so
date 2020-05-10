@@ -40,6 +40,7 @@ function Main(props) {
     countr,
     handleSubtractOneFromCart,
     handleChangeAmountInCart,
+    cartLocal,
   } = props;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -52,10 +53,6 @@ function Main(props) {
     setOpen(false);
   };
 
-  // !! Fix the cart total ondelete
-  // React.useEffect(() => {
-  //   console.log("used");
-  // }, [open]);
   const cartButton = (
     <Button
       style={{
@@ -94,6 +91,7 @@ function Main(props) {
           handleRemoveFromCart={handleRemoveFromCart}
           handleChangeAmountInCart={handleChangeAmountInCart}
           total={total}
+          cartLocal={cartLocal}
         />
       </div>
       <br />
@@ -121,6 +119,7 @@ function Main(props) {
           countr={countr}
           sort={sort}
           handleSortChange={handleSortChange}
+          cartLocal={cartLocal}
         />
       </div>
       <Footer />

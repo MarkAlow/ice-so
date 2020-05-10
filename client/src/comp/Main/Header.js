@@ -24,11 +24,11 @@ export default function ElevateAppBar(props) {
       <ElevationScroll {...props}>
         <AppBar style={{ background: "#2e2a2e" }}>
           <Toolbar>
-            <Link to='/' exact>
+            <a href='https://ice-so.herokuapp.com/'>
               <IconButton edge='start' aria-label='open drawer'>
                 <SVG style={{ cursor: "pointer" }} />
               </IconButton>
-            </Link>
+            </a>
             <Menu />
           </Toolbar>
         </AppBar>

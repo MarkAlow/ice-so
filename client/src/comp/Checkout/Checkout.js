@@ -17,6 +17,7 @@ function Checkout(props) {
   };
   const {
     cartItem,
+    cartLocal,
     name,
     setName,
     phone,
@@ -60,7 +61,7 @@ function Checkout(props) {
           }}
         >
           <h2>Your Order:</h2>
-          {cartItem.map((item) => (
+          {cartLocal.map((item) => (
             <grid-container key={item.id} id='cartItem'>
               <grid-item>
                 <img
@@ -101,7 +102,7 @@ function Checkout(props) {
           <span
             style={{ position: "relative", margin: "0 auto", fontSize: "2rem" }}
           >
-            ${totals(cartItem)}
+            ${totals(cartLocal)}
           </span>
           <grid-item />
           <TextField

@@ -445,11 +445,18 @@ body {
   margin: 0 auto;
   width: 100%;
 }
+
 #couponTotal {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
+}
+#paymentTotal {
+  display: flex;
+  margin: 0 auto;
+  border: 1px #ccc solid;
+  border-radius: 1rem;
 }
 #thankYouWrap {
   text-align: center;

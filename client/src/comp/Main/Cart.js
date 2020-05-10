@@ -36,6 +36,7 @@ export default function Cart(props) {
     cartItem,
     handleChangeAmountInCart,
     total,
+    cartLocal,
   } = props;
 
   return (
@@ -56,9 +57,9 @@ export default function Cart(props) {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2 id='transition-modal-title'>
-              {cartItem.length > 0 ? "Your Order" : "Cart is empty"}
+              {cartLocal.length > 0 ? "Your Order" : "Cart is empty"}
             </h2>
-            {cartItem.map((item) => (
+            {cartLocal.map((item) => (
               <grid-container key={item.id} id='cartItem'>
                 <grid-item>
                   <img
@@ -94,7 +95,7 @@ export default function Cart(props) {
               <span>${total}</span>
             </div>
             <br /> <br />
-            {cartItem.length > 0 ? (
+            {cartLocal.length > 0 ? (
               total > 1 ? (
                 <Link to='/ct' style={{ textDecoration: "none" }}>
                   <Button
@@ -117,18 +118,7 @@ export default function Cart(props) {
                   Please order $15 or more
                 </Button>
               )
-            ) : (
-              <Link to='/ct' style={{ textDecoration: "none" }}>
-                <Button
-                  style={{ background: "#f2d68b", borderRadius: "1rem" }}
-                  color='primary'
-                  className={classes.margin}
-                  type='button'
-                >
-                  Check Out
-                </Button>
-              </Link>
-            )}
+            ) : null}
           </div>
         </Fade>
       </Modal>

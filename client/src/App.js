@@ -19,7 +19,7 @@ function App() {
   const [message, setMessage] = useState("");
   const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
   const [sort, setSort] = useState("");
-
+  const [sent, setSent] = React.useState(false);
   //-- CART STATE
   const [cartItem, setCartItem] = useState([]);
   // ADDRESS SUGGESTION + ADDRESS SET FUNCTIONS
@@ -85,9 +85,10 @@ function App() {
     axios
       .post(base + "api/business", business)
       .then((res) => console.log(res.data))
-      .catch((err) => console.log("Error! - " + err));
+      .then(setSent(true))
+      .catch((err) => setSent(err));
   };
-
+  var cartLocal = JSON.parse(localStorage.getItem("cartItem"));
   const [iceCreams, setIceCreams] = useState([]);
 
   // START ICE CREAM CART
@@ -149,7 +150,7 @@ function App() {
 
   const [total, setTotal] = useState(0.0);
   const cartButtonTotal = () => {
-    const total = cartItem
+    const total = cartLocal
       .reduce((a, c) => a + c.price * c.count, 0)
       .toFixed(2);
     setTotal(total);
@@ -216,6 +217,7 @@ function App() {
                 sort={sort}
                 total={total}
                 cartButtonTotal={cartButtonTotal}
+                cartLocal={cartLocal}
               />
             </Route>
             <Route path='/ct'>
@@ -231,6 +233,7 @@ function App() {
                 phone={phone}
                 address={address}
                 cartItem={cartItem}
+                cartLocal={cartLocal}
                 onSubmit={onSubmit}
                 formatPhoneNumber={formatPhoneNumber}
               />
@@ -261,6 +264,8 @@ function App() {
                 message={message}
                 formatPhoneNumber={formatPhoneNumber}
                 onBusiness={onBusiness}
+                sent={sent}
+                setSent={setSent}
               />
             </Route>
           </Switch>
