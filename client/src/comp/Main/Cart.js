@@ -41,7 +41,7 @@ export default function Cart(props) {
 
   return (
     <div id='cartBody'>
-      {/* <Modal
+      <Modal
         aria-labelledby='Cart'
         aria-describedby='Your Order:'
         className={classes.modal}
@@ -121,7 +121,7 @@ export default function Cart(props) {
             ) : null}
           </div>
         </Fade>
-      </Modal> */}
+      </Modal>
     </div>
   );
 }
